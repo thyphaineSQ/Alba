@@ -57,6 +57,10 @@ function systemPrompt({ firstName, context }) {
 }
 
 export async function handleChat(req, res) {
+  // GET is a health check: open /api/chat in a browser to see whether the key is visible to the server.
+  if (req.method === 'GET') {
+    return json(res, 200, { configured: !!(process.env.ANTHROPIC_API_KEY || process.env.ANTHROPIC_AUTH_TOKEN), model: MODEL });
+  }
   if (req.method !== 'POST') return json(res, 405, { error: 'Method not allowed' });
 
   const anthropic = getClient();
@@ -90,36 +94,46 @@ export async function handleChat(req, res) {
   const controller = new AbortController();
   res.on('close', () => controller.abort());
 
-  try {
-    const stream = anthropic.beta.messages.stream(
-      {
-        model: MODEL,
-        max_tokens: 4096,
-        output_config: { effort: 'low' },
-        betas: ['server-side-fallback-2026-07-01'],
-        fallbacks: 'default',
-        system: systemPrompt({
-          firstName: clip(body.firstName || 'Camille', 40),
-          context: clip(body.context, 2000),
-        }),
-        messages,
-      },
+  const system = systemPrompt({
+    firstName: clip(body.firstName || 'Camille', 40),
+    context: clip(body.context, 2000),
+  });
+  // Preferred request uses server-side refusal fallbacks (beta). If the account or model
+  // rejects that option, retry once with a plain request before giving up.
+  const attempts = [
+    () => anthropic.beta.messages.stream(
+      { model: MODEL, max_tokens: 4096, output_config: { effort: 'low' }, betas: ['server-side-fallback-2026-07-01'], fallbacks: 'default', system, messages },
       { signal: controller.signal },
-    );
+    ),
+    () => anthropic.messages.stream(
+      { model: MODEL, max_tokens: 4096, system, messages },
+      { signal: controller.signal },
+    ),
+  ];
 
-    for await (const event of stream) {
-      if (event.type === 'content_block_delta' && event.delta.type === 'text_delta') {
-        send('delta', { text: event.delta.text });
+  let sent = false;
+  for (let i = 0; i < attempts.length; i++) {
+    try {
+      const stream = attempts[i]();
+      for await (const event of stream) {
+        if (event.type === 'content_block_delta' && event.delta.type === 'text_delta') {
+          sent = true;
+          send('delta', { text: event.delta.text });
+        }
       }
+      const final = await stream.finalMessage();
+      if (final.stop_reason === 'refusal') send('refusal', {});
+      send('done', {});
+      break;
+    } catch (err) {
+      if (controller.signal.aborted) return;
+      const status = err instanceof Anthropic.APIError ? err.status : undefined;
+      const message = err?.error?.error?.message ?? err?.message ?? String(err);
+      console.error('[ask-alba]', `attempt ${i + 1}`, status ?? '', message);
+      if (status === 400 && !sent && i < attempts.length - 1) continue;
+      send('error', { status: status ?? 500, message: clip(message, 240) });
+      break;
     }
-    const final = await stream.finalMessage();
-    if (final.stop_reason === 'refusal') send('refusal', {});
-    send('done', {});
-  } catch (err) {
-    if (controller.signal.aborted) return;
-    const status = err instanceof Anthropic.APIError ? err.status : undefined;
-    console.error('[ask-alba]', status ?? '', err?.message ?? err);
-    send('error', { status: status ?? 500 });
   }
   res.end();
 }

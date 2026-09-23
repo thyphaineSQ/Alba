@@ -36,7 +36,7 @@ async function streamAnswer(
   body: unknown,
   onDelta: (t: string) => void,
   signal: AbortSignal,
-): Promise<'ok' | 'refusal' | 'offline' | 'busy' | 'error' | 'config'> {
+): Promise<{ outcome: 'ok' | 'refusal' | 'offline' | 'busy' | 'error' | 'config'; detail?: string }> {
   let res: Response;
   try {
     res = await fetch(`${import.meta.env.BASE_URL}api/chat`, {
@@ -46,14 +46,16 @@ async function streamAnswer(
       signal,
     });
   } catch {
-    return signal.aborted ? 'ok' : 'offline';
+    return { outcome: signal.aborted ? 'ok' : 'offline' };
   }
-  if (res.status === 429) return 'busy';
-  if (!res.ok || !res.body || !res.headers.get('content-type')?.includes('text/event-stream')) return 'offline';
+  if (res.status === 429) return { outcome: 'busy' };
+  if (!res.ok || !res.body || !res.headers.get('content-type')?.includes('text/event-stream')) {
+    return { outcome: 'offline', detail: res.status === 503 ? undefined : `HTTP ${res.status} from /api/chat` };
+  }
 
   const reader = res.body.getReader();
   const decoder = new TextDecoder();
-  let buffer = '', outcome: 'ok' | 'refusal' | 'error' | 'config' = 'ok';
+  let buffer = '', outcome: 'ok' | 'refusal' | 'error' | 'config' = 'ok', detail: string | undefined;
   for (;;) {
     const { value, done } = await reader.read();
     if (done) break;
@@ -66,10 +68,14 @@ async function streamAnswer(
       const data = /^data: (.*)$/m.exec(chunk)?.[1];
       if (event === 'delta' && data) onDelta(JSON.parse(data).text);
       if (event === 'refusal') outcome = 'refusal';
-      if (event === 'error') outcome = [401, 403].includes(JSON.parse(data ?? '{}').status) ? 'config' : 'error';
+      if (event === 'error') {
+        const err = JSON.parse(data ?? '{}');
+        outcome = [401, 403].includes(err.status) ? 'config' : 'error';
+        detail = err.message ? `${err.status}: ${err.message}` : undefined;
+      }
     }
   }
-  return outcome;
+  return { outcome, detail };
 }
 
 const FALLBACK = {
@@ -115,7 +121,7 @@ export function ChatProvider({ children }: { children: ReactNode }) {
 
     const controller = new AbortController();
     abort.current = controller;
-    const outcome = await streamAnswer(
+    const { outcome, detail } = await streamAnswer(
       { firstName: FIRST_NAME, page: tab, context: pageContext(tab, s, d), messages: next },
       delta => {
         setLoading(false);
@@ -134,7 +140,8 @@ export function ChatProvider({ children }: { children: ReactNode }) {
       const last = m[m.length - 1];
       if (outcome === 'ok' && last.text) return m;
       const reason = outcome === 'ok' ? 'error' : outcome;
-      return [...m.slice(0, -1), { role: 'assistant', text: last.text ? `${last.text}\n\n${FALLBACK[reason]}` : FALLBACK[reason], error: true }];
+      const note = detail ? `${FALLBACK[reason]}\n(${detail})` : FALLBACK[reason];
+      return [...m.slice(0, -1), { role: 'assistant', text: last.text ? `${last.text}\n\n${note}` : note, error: true }];
     });
   }, [tab, s, d]);
 
