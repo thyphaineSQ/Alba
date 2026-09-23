@@ -39,6 +39,14 @@ npm start                 # serves dist/ and /api/chat on http://localhost:8787
 
 State is kept in `localStorage`. *Restart* under the phone resets everything. On screens narrower than 500px the app goes full screen, without the phone frame.
 
+## Deploy on Vercel
+
+The repo is ready for Vercel: `vercel.json` builds the Vite app into `dist/`, and `api/chat.mjs` runs the Ask Alba proxy as a serverless function at `/api/chat`.
+
+1. On vercel.com: **Add New → Project**, import `thyphaineSQ/Alba`. Keep the detected settings (Vite, `npm run build`, `dist`).
+2. **Settings → Environment Variables**: add `ANTHROPIC_API_KEY` (optionally `ALBA_MODEL`) for Production and Preview. Do not prefix it with `VITE_`, or it would end up in the browser bundle.
+3. Deploy, or redeploy if the project already existed: environment variables only apply to new deployments.
+
 ## Ask Alba configuration
 
 | Variable | Default | |
@@ -59,6 +67,8 @@ src/
   chat.tsx           Ask Alba: page context, streaming client, floating button and sheet
   App.tsx            phone frame, screen transitions, tab bar, time-jump modal, toasts
   screens/           Onboarding, Home, Wealth, Discover, Circle, Learn
+api/
+  chat.mjs           Vercel serverless function wrapping the same proxy
 server/
   chat.mjs           Claude API proxy (also mounted on the Vite dev/preview server)
   index.mjs          production static + API server

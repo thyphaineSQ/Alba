@@ -67,7 +67,8 @@ export async function handleChat(req, res) {
 
   let body;
   try {
-    body = JSON.parse(await readBody(req));
+    // Hosts like Vercel may hand over an already-parsed body; otherwise read the stream.
+    body = req.body && typeof req.body === 'object' ? req.body : JSON.parse(await readBody(req));
   } catch {
     return json(res, 400, { error: 'bad_request' });
   }
