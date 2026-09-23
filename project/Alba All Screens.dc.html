@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>@font-face{font-family:'Swissquote CT';src:url('uploads/SwissquoteCT-Regular.otf') format('opentype');font-weight:400;}@font-face{font-family:'Swissquote CT';src:url('uploads/SwissquoteCT-Medium.otf') format('opentype');font-weight:500;}@font-face{font-family:'Swissquote CT';src:url('uploads/SwissquoteCT-Bold.otf') format('opentype');font-weight:700;}</style>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; background:#efece8; -webkit-font-smoothing:antialiased; }
+  a { color:#16130f; }
+  a:hover { color:#5f574f; }
+</style>
+</helmet>
+
+<div id="alba-artboard" style="width:1880px; padding:60px; box-sizing:border-box; font-family:'Swissquote CT',Helvetica,sans-serif; color:#16130f; display:flex; flex-direction:column; gap:46px; background:#efece8;">
+  <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:40px;">
+    <div style="display:flex; flex-direction:column; gap:8px;">
+      <div style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:40px; line-height:1.1;">Alba, all screens</div>
+      <div style="font-size:15px; color:#5f574f;">First run, onboarding, and the app two years in.</div>
+    </div>
+    <div style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:11px; letter-spacing:.16em; color:#8a827a;">ALBA BY SWISSQUOTE</div>
+  </div>
+
+  <div style="display:flex; gap:32px;">
+    <div style="display:flex; flex-direction:column; gap:10px;">
+      <div style="display:flex; align-items:baseline; gap:8px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:11px; letter-spacing:.14em; color:#8a827a;">01</span><span style="font-size:14px;">Splash</span></div>
+      <dc-import name="Alba Prototype" embedded="{{ true }}" screen="splash" hint-size="390px,844px"></dc-import>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:10px;">
+      <div style="display:flex; align-items:baseline; gap:8px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:11px; letter-spacing:.14em; color:#8a827a;">02</span><span style="font-size:14px;">What Alba is for</span></div>
+      <dc-import name="Alba Prototype" embedded="{{ true }}" screen="intro" hint-size="390px,844px"></dc-import>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:10px;">
+      <div style="display:flex; align-items:baseline; gap:8px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:11px; letter-spacing:.14em; color:#8a827a;">03</span><span style="font-size:14px;">Where are you now</span></div>
+      <dc-import name="Alba Prototype" embedded="{{ true }}" screen="start" hint-size="390px,844px"></dc-import>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:10px;">
+      <div style="display:flex; align-items:baseline; gap:8px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:11px; letter-spacing:.14em; color:#8a827a;">04</span><span style="font-size:14px;">Pace</span></div>
+      <dc-import name="Alba Prototype" embedded="{{ true }}" screen="pace" hint-size="390px,844px"></dc-import>
+    </div>
+  </div>
+
+  <div style="display:flex; gap:32px;">
+    <div style="display:flex; flex-direction:column; gap:10px;">
+      <div style="display:flex; align-items:baseline; gap:8px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:11px; letter-spacing:.14em; color:#8a827a;">05</span><span style="font-size:14px;">Themes</span></div>
+      <dc-import name="Alba Prototype" embedded="{{ true }}" screen="themes" hint-size="390px,844px"></dc-import>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:10px;">
+      <div style="display:flex; align-items:baseline; gap:8px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:11px; letter-spacing:.14em; color:#8a827a;">06</span><span style="font-size:14px;">Rhythm and amount</span></div>
+      <dc-import name="Alba Prototype" embedded="{{ true }}" screen="rhythm" hint-size="390px,844px"></dc-import>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:10px;">
+      <div style="display:flex; align-items:baseline; gap:8px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:11px; letter-spacing:.14em; color:#8a827a;">07</span><span style="font-size:14px;">First payment</span></div>
+      <dc-import name="Alba Prototype" embedded="{{ true }}" screen="payment" hint-size="390px,844px"></dc-import>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:10px;">
+      <div style="display:flex; align-items:baseline; gap:8px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:11px; letter-spacing:.14em; color:#8a827a;">08</span><span style="font-size:14px;">Two years later</span></div>
+      <dc-import name="Alba Prototype" embedded="{{ true }}" screen="later" hint-size="390px,844px"></dc-import>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:10px;">
+      <div style="display:flex; align-items:baseline; gap:8px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:11px; letter-spacing:.14em; color:#8a827a;">09</span><span style="font-size:14px;">Home</span></div>
+      <dc-import name="Alba Prototype" embedded="{{ true }}" screen="home" hint-size="390px,844px"></dc-import>
+    </div>
+  </div>
+
+  <div style="display:flex; gap:32px;">
+    <div style="display:flex; flex-direction:column; gap:10px;">
+      <div style="display:flex; align-items:baseline; gap:8px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:11px; letter-spacing:.14em; color:#8a827a;">10</span><span style="font-size:14px;">Wealth</span></div>
+      <dc-import name="Alba Prototype" embedded="{{ true }}" screen="wealth" hint-size="390px,844px"></dc-import>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:10px;">
+      <div style="display:flex; align-items:baseline; gap:8px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:11px; letter-spacing:.14em; color:#8a827a;">11</span><span style="font-size:14px;">Discover</span></div>
+      <dc-import name="Alba Prototype" embedded="{{ true }}" screen="discover" hint-size="390px,844px"></dc-import>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:10px;">
+      <div style="display:flex; align-items:baseline; gap:8px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:11px; letter-spacing:.14em; color:#8a827a;">12</span><span style="font-size:14px;">Circle</span></div>
+      <dc-import name="Alba Prototype" embedded="{{ true }}" screen="circle" hint-size="390px,844px"></dc-import>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:10px;">
+      <div style="display:flex; align-items:baseline; gap:8px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:11px; letter-spacing:.14em; color:#8a827a;">13</span><span style="font-size:14px;">Learn</span></div>
+      <dc-import name="Alba Prototype" embedded="{{ true }}" screen="learn" hint-size="390px,844px"></dc-import>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+</body>
+</html>

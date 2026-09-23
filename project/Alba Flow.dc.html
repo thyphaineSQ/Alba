@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>@font-face{font-family:'Swissquote CT';src:url('uploads/SwissquoteCT-Regular.otf') format('opentype');font-weight:400;}@font-face{font-family:'Swissquote CT';src:url('uploads/SwissquoteCT-Medium.otf') format('opentype');font-weight:500;}@font-face{font-family:'Swissquote CT';src:url('uploads/SwissquoteCT-Bold.otf') format('opentype');font-weight:700;}</style>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; background:#efece8; -webkit-font-smoothing:antialiased; }
+  a { color:#16130f; }
+  a:hover { color:#5f574f; }
+</style>
+</helmet>
+
+<div style="width:2540px; padding:56px 56px 72px; font-family:'Swissquote CT',Helvetica,sans-serif; color:#16130f; display:flex; flex-direction:column; gap:44px;">
+
+  <div style="display:flex; flex-direction:column; gap:10px; max-width:820px;">
+    <div style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:38px; line-height:1.15;">Alba, the whole flow</div>
+    <div style="font-size:15px; line-height:1.6; color:#5f574f;">Thirteen screens, live. Every frame here is the real prototype, so the filters, chapters and tabs work inside each one.</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; gap:18px;">
+    <div style="display:flex; align-items:center; gap:14px;">
+      <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:10px; letter-spacing:.18em; color:#8a827a;">FIRST RUN</span>
+      <span style="flex:1; height:1px; background:rgba(0,0,0,.14);"></span>
+    </div>
+    <div style="display:flex; flex-wrap:nowrap; gap:26px;">
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <div style="font-size:13px; color:#5f574f;">01 Splash</div>
+        <dc-import name="Alba Prototype" embedded="{{ true }}" screen="splash" hint-size="390px,844px"></dc-import>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <div style="font-size:13px; color:#5f574f;">02 What Alba is for</div>
+        <dc-import name="Alba Prototype" embedded="{{ true }}" screen="intro" hint-size="390px,844px"></dc-import>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <div style="font-size:13px; color:#5f574f;">03 Where are you now</div>
+        <dc-import name="Alba Prototype" embedded="{{ true }}" screen="start" hint-size="390px,844px"></dc-import>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; gap:18px;">
+    <div style="display:flex; align-items:center; gap:14px;">
+      <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:10px; letter-spacing:.18em; color:#8a827a;">ONBOARDING</span>
+      <span style="flex:1; height:1px; background:rgba(0,0,0,.14);"></span>
+    </div>
+    <div style="display:flex; flex-wrap:nowrap; gap:26px;">
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <div style="font-size:13px; color:#5f574f;">04 Pace</div>
+        <dc-import name="Alba Prototype" embedded="{{ true }}" screen="pace" hint-size="390px,844px"></dc-import>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <div style="font-size:13px; color:#5f574f;">05 Themes</div>
+        <dc-import name="Alba Prototype" embedded="{{ true }}" screen="themes" hint-size="390px,844px"></dc-import>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <div style="font-size:13px; color:#5f574f;">06 Rhythm and amount</div>
+        <dc-import name="Alba Prototype" embedded="{{ true }}" screen="rhythm" hint-size="390px,844px"></dc-import>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <div style="font-size:13px; color:#5f574f;">07 First payment</div>
+        <dc-import name="Alba Prototype" embedded="{{ true }}" screen="payment" hint-size="390px,844px"></dc-import>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <div style="font-size:13px; color:#5f574f;">08 Two years later</div>
+        <dc-import name="Alba Prototype" embedded="{{ true }}" screen="later" hint-size="390px,844px"></dc-import>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; gap:18px;">
+    <div style="display:flex; align-items:center; gap:14px;">
+      <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:10px; letter-spacing:.18em; color:#8a827a;">THE APP, TWO YEARS IN</span>
+      <span style="flex:1; height:1px; background:rgba(0,0,0,.14);"></span>
+    </div>
+    <div style="display:flex; flex-wrap:nowrap; gap:26px;">
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <div style="font-size:13px; color:#5f574f;">09 Home</div>
+        <dc-import name="Alba Prototype" embedded="{{ true }}" screen="home" hint-size="390px,844px"></dc-import>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <div style="font-size:13px; color:#5f574f;">10 Wealth</div>
+        <dc-import name="Alba Prototype" embedded="{{ true }}" screen="wealth" hint-size="390px,844px"></dc-import>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <div style="font-size:13px; color:#5f574f;">11 Discover</div>
+        <dc-import name="Alba Prototype" embedded="{{ true }}" screen="discover" hint-size="390px,844px"></dc-import>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <div style="font-size:13px; color:#5f574f;">12 Circle</div>
+        <dc-import name="Alba Prototype" embedded="{{ true }}" screen="circle" hint-size="390px,844px"></dc-import>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <div style="font-size:13px; color:#5f574f;">13 Learn</div>
+        <dc-import name="Alba Prototype" embedded="{{ true }}" screen="learn" hint-size="390px,844px"></dc-import>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</x-dc>
+</body>
+</html>

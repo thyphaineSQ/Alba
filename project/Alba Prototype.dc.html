@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>@font-face{font-family:'Swissquote CT';src:url('uploads/SwissquoteCT-Regular.otf') format('opentype');font-weight:400;}@font-face{font-family:'Swissquote CT';src:url('uploads/SwissquoteCT-Medium.otf') format('opentype');font-weight:500;}@font-face{font-family:'Swissquote CT';src:url('uploads/SwissquoteCT-Bold.otf') format('opentype');font-weight:700;}</style>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  body { margin:0; background:#e8e5e0; -webkit-font-smoothing:antialiased; }
+  div { scrollbar-width:none; }
+  div::-webkit-scrollbar { width:0; height:0; }
+  a { color:#16130f; }
+  a:hover { color:#5f574f; }
+</style>
+</helmet>
+
+<div style="{{ pageStyle }}">
+  <div style="display:flex; flex-direction:column; align-items:center; gap:18px;">
+
+    <div style="width:390px; height:844px; border-radius:38px; background:#fff; box-shadow:0 2px 6px rgba(0,0,0,.06), 0 30px 70px -30px rgba(0,0,0,.45), 0 0 70px -28px rgba(250,91,53,.4); overflow:hidden; display:flex; flex-direction:column; color:#16130f; position:relative;">
+
+      <div style="display:flex; align-items:center; justify-content:space-between; padding:16px 26px 0; font-size:12px; position:relative; z-index:1;">
+        <span>9:41</span><span style="letter-spacing:.1em;">▮▮▮</span>
+      </div>
+
+      <sc-if value="{{ atSplash }}" hint-placeholder-val="{{ true }}">
+        <div style="position:absolute; inset:0; background:radial-gradient(120% 70% at 50% 18%, #FD8E6C 0%, rgba(253,142,108,0) 60%), linear-gradient(180deg, #FA6A45 0%, #FA5B35 50%, #F2502C 100%); pointer-events:none;"></div>
+        <div onClick="{{ toIntro }}" style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:20px; cursor:pointer; position:relative;">
+          <svg viewBox="0 2 28 28" style="width:56px; height:56px; flex:none;"><path d="M0 21 A14 14 0 0 1 28 21 Z" fill="#fff"></path><rect x="0" y="24.2" width="28" height="2.4" fill="#fff"></rect></svg>
+          <div style="position:relative; display:flex; flex-direction:column; align-items:center; gap:10px;">
+            <div style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:60px; line-height:1; letter-spacing:-.01em;">Alba</div>
+            <div style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:400; font-size:15px; letter-spacing:.01em; color:#FEDCD3;">by Swissquote</div>
+          </div>
+        </div>
+        <div style="position:relative; padding:0 26px 34px; text-align:center; font-size:12px; color:#16130f;">Tap to begin</div>
+      </sc-if>
+
+      <sc-if value="{{ atIntro }}" hint-placeholder-val="{{ false }}">
+        <div style="flex:1; padding:22px 26px 0; display:flex; flex-direction:column; gap:16px; overflow:hidden;">
+          <div style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:9.5px; letter-spacing:.18em; color:#8a827a;">WHAT ALBA IS FOR</div>
+          <div style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:28px; line-height:1.2;">Put your money behind what you <span>believe in</span>.</div>
+          <div style="font-size:13.5px; line-height:1.55; color:#5f574f;">For anyone who wants to start investing without pretending they already know how.</div>
+          <div style="display:flex; flex-direction:column;">
+            <div style="display:flex; gap:16px; align-items:center; padding:15px 0; ">
+              <svg viewBox="0 0 64 64" style="width:64px; height:64px; display:block;">
+                  <circle cx="32" cy="34" r="17" fill="rgba(250,91,53,.34)"></circle>
+                  <path d="M32 51 V28" fill="none" stroke="#16130f" stroke-width="1.5" stroke-linecap="round"></path>
+                  <path d="M32 34 C23 34 19 29 19 22 C27 22 32 26 32 34 Z" fill="#fff" stroke="#16130f" stroke-width="1.4" stroke-linejoin="round"></path>
+                  <path d="M32 40 C41 40 45 35 45 28 C37 28 32 32 32 40 Z" fill="#FEDCD3" stroke="#16130f" stroke-width="1.4" stroke-linejoin="round"></path>
+                  <path d="M20 51 H44" fill="none" stroke="#16130f" stroke-width="1.5" stroke-linecap="round"></path>
+                </svg>
+              <span style="flex:1; display:flex; flex-direction:column; gap:5px;">
+                <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:16px; line-height:1.25;">Invest in what matters to you</span>
+                <span style="font-size:12.5px; line-height:1.5; color:#5f574f;">Whole-world funds as the base, then the themes you care about: climate, education, women-led companies.</span>
+              </span>
+            </div>
+            <div style="display:flex; gap:16px; align-items:center; padding:15px 0; border-top:1px solid rgba(0,0,0,.12);">
+              <svg viewBox="0 0 64 64" style="width:64px; height:64px; display:block;">
+                  <circle cx="32" cy="32" r="19" fill="rgba(250,91,53,.34)"></circle>
+                  <circle cx="24" cy="26" r="6" fill="#fff" stroke="#16130f" stroke-width="1.4"></circle>
+                  <circle cx="40" cy="29" r="5" fill="#FEDCD3" stroke="#16130f" stroke-width="1.4"></circle>
+                  <path d="M13 47 C13 39 18 35 24 35 C30 35 35 39 35 47" fill="#fff" stroke="#16130f" stroke-width="1.4" stroke-linecap="round"></path>
+                  <path d="M38 37 C45 37 50 41 50 47" fill="none" stroke="#16130f" stroke-width="1.4" stroke-linecap="round"></path>
+                </svg>
+              <span style="flex:1; display:flex; flex-direction:column; gap:5px;">
+                <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:16px; line-height:1.25;">Never do it alone</span>
+                <span style="font-size:12.5px; line-height:1.5; color:#5f574f;">Ask anything, see what people like you did in a dip, and meet them at a Swiss meet-up.</span>
+              </span>
+            </div>
+            <div style="display:flex; gap:16px; align-items:center; padding:15px 0; border-top:1px solid rgba(0,0,0,.12);">
+              <svg viewBox="0 0 64 64" style="width:64px; height:64px; display:block;">
+                  <circle cx="32" cy="32" r="19" fill="rgba(250,91,53,.34)"></circle>
+                  <path d="M13 21 C20 19 26 20 32 24 C38 20 44 19 51 21 V44 C44 42 38 43 32 47 C26 43 20 42 13 44 Z" fill="#fff" stroke="#16130f" stroke-width="1.4" stroke-linejoin="round"></path>
+                  <path d="M32 24 V47" fill="none" stroke="#16130f" stroke-width="1.4"></path>
+                  <path d="M19 27 H27 M19 33 H27 M37 30 H45 M37 36 H45" fill="none" stroke="#16130f" stroke-width="1.2" stroke-linecap="round" opacity=".5"></path>
+                  <path d="M36 17 L40 13 L44 17" fill="none" stroke="#FA5B35" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <path d="M40 13 V20" fill="none" stroke="#FA5B35" stroke-width="1.6" stroke-linecap="round"></path>
+                </svg>
+              <span style="flex:1; display:flex; flex-direction:column; gap:5px;">
+                <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:16px; line-height:1.25;">Learn as you go</span>
+                <span style="font-size:12.5px; line-height:1.5; color:#5f574f;">Two minutes at a time, in plain words. Every month you understand more of what you own.</span>
+              </span>
+            </div>
+          </div>
+          <div style="font-size:12.5px; line-height:1.45; color:#8a827a;">Built in Switzerland. Your money stays yours. Pause or take it back any time.</div>
+        </div>
+        <div style="padding:16px 26px 30px; display:flex; flex-direction:column; gap:12px;">
+          <div onClick="{{ toStart }}" style="background:#16130f; color:#fff; border-radius:100px; padding:17px 0; text-align:center; font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:15px; cursor:pointer;">Start</div>
+          <div onClick="{{ toHome }}" style="text-align:center; font-size:12.5px; color:#5f574f; cursor:pointer;">I already have an account</div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ atStart }}" hint-placeholder-val="{{ false }}">
+        <div style="flex:1; padding:22px 26px 0; display:flex; flex-direction:column; gap:16px; overflow:hidden;">
+          <div style="display:flex; align-items:center; gap:7px;"><svg viewBox="0 2 28 28" style="width:20px; height:20px; flex:none;"><path d="M0 21 A14 14 0 0 1 28 21 Z" fill="#FA5B35"></path><rect x="0" y="24.2" width="28" height="2.4" fill="#FA5B35"></rect></svg><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:21px; line-height:1; letter-spacing:-.01em;">Alba</span><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:400; font-size:12px; line-height:1; color:#a39b93; margin-left:2px; align-self:flex-end; padding-bottom:2px;">by Swissquote</span></div>
+          <div style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:30px; line-height:1.15;">Where are you right now?</div>
+          <div style="font-size:13px; line-height:1.5; color:#5f574f;">Pick the one that sounds most like you. No score, no test, and you can change it later.</div>
+          <div style="display:flex; flex-direction:column;">
+            
+            <div onClick="{{ toPace }}" style="display:flex; align-items:center; gap:14px; padding:13px 0;  cursor:pointer;">
+              <svg viewBox="0 0 52 52" style="width:52px; height:52px; flex:none; display:block;">
+                <circle cx="26" cy="26" r="16" fill="rgba(250,91,53,.34)"></circle>
+                <path d="M11 22 H41 V38 H11 Z" fill="#fff" stroke="#16130f" stroke-width="1.3" stroke-linejoin="round"></path>
+                <path d="M11 27 H41" fill="none" stroke="#16130f" stroke-width="1.2"></path>
+                <circle cx="26" cy="33" r="3.5" fill="#FEDCD3" stroke="#16130f" stroke-width="1.2"></circle>
+                <path d="M26 17 V11 M21 14 L26 10 L31 14" fill="none" stroke="#16130f" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" opacity=".45"></path>
+              </svg><span style="flex:1; font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:16px; line-height:1.3;">Money sitting in my account doing nothing</span><span style="font-size:15px; color:#8a827a;">→</span>
+            </div>
+            
+            <div onClick="{{ toPace }}" style="display:flex; align-items:center; gap:14px; padding:13px 0; border-top:1px solid rgba(0,0,0,.12); cursor:pointer;">
+              <svg viewBox="0 0 52 52" style="width:52px; height:52px; flex:none; display:block;">
+                <circle cx="26" cy="26" r="16" fill="rgba(250,91,53,.34)"></circle>
+                <circle cx="26" cy="26" r="13" fill="#fff" stroke="#16130f" stroke-width="1.3"></circle>
+                <path d="M32 20 L28.5 28.5 L20 32 L23.5 23.5 Z" fill="#FEDCD3" stroke="#16130f" stroke-width="1.2" stroke-linejoin="round"></path>
+                <path d="M26 10 V13 M26 39 V42 M10 26 H13 M39 26 H42" fill="none" stroke="#16130f" stroke-width="1.3" stroke-linecap="round" opacity=".5"></path>
+              </svg><span style="flex:1; font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:16px; line-height:1.3;">I want to start, I don’t know where</span><span style="font-size:15px; color:#8a827a;">→</span>
+            </div>
+            
+            <div onClick="{{ toPace }}" style="display:flex; align-items:center; gap:14px; padding:13px 0; border-top:1px solid rgba(0,0,0,.12); cursor:pointer;">
+              <svg viewBox="0 0 52 52" style="width:52px; height:52px; flex:none; display:block;">
+                <circle cx="26" cy="26" r="16" fill="rgba(250,91,53,.34)"></circle>
+                <path d="M12 36 L20 28 L26 32 L40 17" fill="none" stroke="#16130f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M33 17 H40 V24" fill="none" stroke="#16130f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M26 41 C22 38 21 34 21 31 C24 31 26 33 26 36 C26 33 28 31 31 31 C31 34 30 38 26 41 Z" fill="#FEDCD3" stroke="#16130f" stroke-width="1.2" stroke-linejoin="round"></path>
+              </svg><span style="flex:1; font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:16px; line-height:1.3;">I invest already, I want it to mean something</span><span style="font-size:15px; color:#8a827a;">→</span>
+            </div>
+          </div>
+          <div style="margin-top:auto; display:flex; flex-direction:column; gap:12px; padding:16px 0; border-top:1px solid rgba(0,0,0,.12);">
+            <div style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:9.5px; letter-spacing:.18em; color:#8a827a;">11’400 PEOPLE STARTED HERE WITH CHF 100</div>
+            <div style="display:flex; gap:13px; align-items:flex-start;">
+              <span style="width:36px; height:36px; border-radius:50%; overflow:hidden; background:#f1ede8; flex:none;"><img src="./people/sophie.png" style="width:100%; height:100%; object-fit:cover; display:block;" alt=""></span>
+              <span style="flex:1; display:flex; flex-direction:column; gap:4px;">
+                <span style="font-size:14px; line-height:1.4;">“I thought I needed more money first. I didn’t.”</span>
+                <span style="font-size:11.5px; color:#8a827a;">Sophie, 34, teacher, CHF 200/mo since 2024</span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div onClick="{{ toHome }}" style="padding:14px 26px 30px; text-align:center; font-size:13px; color:#5f574f; cursor:pointer;">
+          <span style="border-bottom:1px solid rgba(0,0,0,.25); padding-bottom:2px;">Just show me around first</span>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ atThemes }}" hint-placeholder-val="{{ false }}">
+        <div style="flex:1; padding:22px 26px 0; display:flex; flex-direction:column; gap:16px; overflow:hidden;">
+          <div style="display:flex; align-items:center; gap:16px; font-size:13px; color:#8a827a;">
+            <span onClick="{{ toPace }}" style="cursor:pointer;">Back</span>
+            <span style="flex:1; height:1px; background:rgba(0,0,0,.12); position:relative;"><span style="position:absolute; left:0; top:0; width:60%; height:1px; background:#16130f;"></span></span>
+            <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:11px;">03/05</span>
+          </div>
+          <div style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:27px; line-height:1.2;">Most of it goes to the whole world. Where should the rest go?</div>
+          <div style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:9.5px; letter-spacing:.18em; color:#8a827a;">PICK 2–4 · CHANGE ANY TIME</div>
+          <div style="display:flex; flex-direction:column; gap:9px;">
+            <div style="display:flex; align-items:center; gap:13px; padding:14px 15px; border-radius:18px; cursor:pointer; background:linear-gradient(180deg,#FFF1ED,#FEE6DF); border:1.5px solid #FA5B35;">
+              <span style="width:19px; height:19px; border-radius:6px; flex:none; display:flex; align-items:center; justify-content:center; background:#FA5B35; color:#fff; font-size:11px;">✓</span>
+              <span style="flex:1; display:flex; flex-direction:column; gap:3px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:15.5px;">Climate &amp; clean energy</span><span style="font-size:12.5px; color:#8a827a;">4’120 members · Sophie is in</span></span>
+            </div>
+            <div style="display:flex; align-items:center; gap:13px; padding:14px 15px; border-radius:18px; cursor:pointer; background:linear-gradient(180deg,#FFF1ED,#FEE6DF); border:1.5px solid #FA5B35;">
+              <span style="width:19px; height:19px; border-radius:6px; flex:none; display:flex; align-items:center; justify-content:center; background:#FA5B35; color:#fff; font-size:11px;">✓</span>
+              <span style="flex:1; display:flex; flex-direction:column; gap:3px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:15.5px;">Education &amp; skills</span><span style="font-size:12.5px; color:#8a827a;">1’860 members · Marta is in</span></span>
+            </div>
+            <div style="display:flex; align-items:center; gap:13px; padding:14px 15px; border-radius:18px; cursor:pointer; border:1px solid rgba(0,0,0,.14);">
+              <span style="width:19px; height:19px; border-radius:6px; flex:none; display:flex; align-items:center; justify-content:center; border:1px solid rgba(0,0,0,.25);"></span>
+              <span style="flex:1; display:flex; flex-direction:column; gap:3px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:15.5px;">Women-led companies</span><span style="font-size:12.5px; color:#8a827a;">3’540 members</span></span>
+            </div>
+            <div style="display:flex; align-items:center; gap:13px; padding:14px 15px; border-radius:18px; cursor:pointer; border:1px solid rgba(0,0,0,.14);">
+              <span style="width:19px; height:19px; border-radius:6px; flex:none; display:flex; align-items:center; justify-content:center; border:1px solid rgba(0,0,0,.25);"></span>
+              <span style="flex:1; display:flex; flex-direction:column; gap:3px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:15.5px;">Health &amp; ageing well</span><span style="font-size:12.5px; color:#8a827a;">2’240 members</span></span>
+            </div>
+            <div style="display:flex; align-items:center; gap:13px; padding:14px 15px; border-radius:18px; cursor:pointer; border:1px solid rgba(0,0,0,.14);">
+              <span style="width:19px; height:19px; border-radius:6px; flex:none; display:flex; align-items:center; justify-content:center; border:1px solid rgba(0,0,0,.25);"></span>
+              <span style="flex:1; display:flex; flex-direction:column; gap:3px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:15.5px;">Swiss companies</span><span style="font-size:12.5px; color:#8a827a;">5’900 members</span></span>
+            </div>
+          </div>
+          <div style="font-size:12.5px; line-height:1.45; color:#8a827a;">No strong feelings? Skip. World funds only is a real answer.</div>
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <div style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:9.5px; letter-spacing:.18em; color:#8a827a;">SO FAR</div>
+            <div style="height:4px; display:flex;"><span style="width:70%; background:#16130f;"></span><span style="width:30%; background:#ddd7cf;"></span></div>
+            <div style="font-size:12.5px; color:#8a827a;">70% whole world · 30% your two picks</div>
+          </div>
+        </div>
+        <div style="padding:18px 26px 30px;">
+          <div onClick="{{ toRhythm }}" style="background:#16130f; color:#fff; border-radius:100px; padding:17px 0; text-align:center; font-size:15px; cursor:pointer;" style-hover="opacity:.85">Continue</div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ atPace }}" hint-placeholder-val="{{ false }}">
+        <div style="flex:1; padding:22px 26px 0; display:flex; flex-direction:column; gap:15px; overflow:hidden;">
+          <div style="display:flex; align-items:center; gap:16px; font-size:13px; color:#8a827a;">
+            <span onClick="{{ toStart }}" style="cursor:pointer;">Back</span>
+            <span style="flex:1; height:1px; background:rgba(0,0,0,.12); position:relative;"><span style="position:absolute; left:0; top:0; width:40%; height:1px; background:#16130f;"></span></span>
+            <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:11px;">02/05</span>
+          </div>
+          <div style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:27px; line-height:1.2;">If your money dropped 10% one month, what would you do?</div>
+          <div style="display:flex; flex-direction:column; gap:10px;">
+            
+            <div style="display:flex; align-items:flex-start; gap:13px; padding:15px; border-radius:18px; cursor:pointer; border:1px solid rgba(0,0,0,.14);">
+              <span style="width:19px; height:19px; border-radius:6px; flex:none; margin-top:1px; display:flex; align-items:center; justify-content:center; border:1px solid rgba(0,0,0,.25);"></span>
+              <span style="flex:1; display:flex; flex-direction:column; gap:4px;">
+                <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:15.5px; line-height:1.3;">Take it out, I’d rather sleep</span>
+                <span style="font-size:12.5px; line-height:1.4; color:#8a827a;">We would keep you mostly in cash and bonds</span>
+              </span>
+            </div>
+            
+            <div style="display:flex; align-items:flex-start; gap:13px; padding:15px; border-radius:18px; cursor:pointer; background:linear-gradient(180deg,#FFF1ED,#FEE6DF); border:1.5px solid #FA5B35;">
+              <span style="width:19px; height:19px; border-radius:6px; flex:none; margin-top:1px; display:flex; align-items:center; justify-content:center; background:#FA5B35; color:#fff; font-size:11px;">✓</span>
+              <span style="flex:1; display:flex; flex-direction:column; gap:4px;">
+                <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:15.5px; line-height:1.3;">Leave it, keep paying in</span>
+                <span style="font-size:12.5px; line-height:1.4; color:#8a827a;">What most people here do, and what history rewards</span>
+              </span>
+            </div>
+            
+            <div style="display:flex; align-items:flex-start; gap:13px; padding:15px; border-radius:18px; cursor:pointer; border:1px solid rgba(0,0,0,.14);">
+              <span style="width:19px; height:19px; border-radius:6px; flex:none; margin-top:1px; display:flex; align-items:center; justify-content:center; border:1px solid rgba(0,0,0,.25);"></span>
+              <span style="flex:1; display:flex; flex-direction:column; gap:4px;">
+                <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:15.5px; line-height:1.3;">Add more while it is cheap</span>
+                <span style="font-size:12.5px; line-height:1.4; color:#8a827a;">More in shares, more movement month to month</span>
+              </span>
+            </div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:10px; padding-top:4px;">
+            <div style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:9.5px; letter-spacing:.18em; color:#8a827a;">HOW LONG IS THIS MONEY FOR?</div>
+            <div style="height:2px; background:rgba(0,0,0,.12); position:relative;"><span style="position:absolute; left:0; top:0; width:50%; height:2px; background:#16130f;"></span><span style="position:absolute; left:50%; top:-9px; width:20px; height:20px; border-radius:50%; background:#16130f; transform:translateX(-50%);"></span></div>
+            <div style="display:flex; justify-content:space-between; font-size:12px; color:#8a827a;"><span>2 yrs</span><span style="color:#16130f;">10 yrs</span><span>Retirement</span></div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:9px; padding:16px; border-radius:20px; border:1.5px solid #16130f;">
+            <div style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:9.5px; letter-spacing:.18em; color:#8a827a;">YOUR PACE</div>
+            <div style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:26px; line-height:1;">Steady</div>
+            <div style="font-size:13px; line-height:1.5; color:#5f574f;">Grows through the dips without asking you to watch it.</div>
+            <div style="height:8px; display:flex; gap:3px; margin-top:2px;"><span style="width:70%; border-radius:100px; background:#16130f;"></span><span style="width:30%; border-radius:100px; background:#FEDCD3;"></span></div>
+            <div style="font-size:12.5px; color:#8a827a;">70% world funds, 30% your themes</div>
+          </div>
+        </div>
+        <div style="padding:16px 26px 30px;">
+          <div onClick="{{ toThemes }}" style="background:#16130f; color:#fff; border-radius:100px; padding:17px 0; text-align:center; font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:15px; cursor:pointer;">See my themes</div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ atRhythm }}" hint-placeholder-val="{{ false }}">
+        <div style="flex:1; padding:22px 26px 0; display:flex; flex-direction:column; gap:19px; overflow:hidden;">
+          <div style="display:flex; align-items:center; gap:16px; font-size:13px; color:#8a827a;">
+            <span onClick="{{ toPace }}" style="cursor:pointer;">Back</span>
+            <span style="flex:1; height:1px; background:rgba(0,0,0,.12); position:relative;"><span style="position:absolute; left:0; top:0; width:80%; height:1px; background:#16130f;"></span></span>
+            <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:11px;">04/05</span>
+          </div>
+          <div style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:27px; line-height:1.2;">How often do you want to put money in?</div>
+          <div style="display:flex; flex-direction:column; gap:10px;">
+            <div style="display:flex; align-items:flex-start; gap:13px; padding:15px; border-radius:18px; cursor:pointer; background:linear-gradient(180deg,#FFF1ED,#FEE6DF); border:1.5px solid #FA5B35;">
+              <span style="width:19px; height:19px; border-radius:6px; flex:none; margin-top:1px; display:flex; align-items:center; justify-content:center; background:#FA5B35; color:#fff; font-size:11px;">✓</span>
+              <span style="flex:1; display:flex; flex-direction:column; gap:4px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:15.5px;">Every month, automatically</span><span style="font-size:12.5px; line-height:1.45; color:#8a827a;">8 in 10 members choose this, so you buy through the dips without deciding</span></span>
+            </div>
+            <div style="display:flex; align-items:flex-start; gap:13px; padding:15px; border-radius:18px; cursor:pointer; border:1px solid rgba(0,0,0,.14);">
+              <span style="width:19px; height:19px; border-radius:6px; flex:none; margin-top:1px; display:flex; align-items:center; justify-content:center; border:1px solid rgba(0,0,0,.25);"></span>
+              <span style="flex:1; display:flex; flex-direction:column; gap:4px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:15.5px;">When I feel like it</span><span style="font-size:12.5px; line-height:1.45; color:#8a827a;">one amount now, add more whenever, with no schedule</span></span>
+            </div>
+          </div>
+          <div style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:9.5px; letter-spacing:.18em; color:#8a827a;">HOW MUCH, EACH MONTH?</div>
+          <div style="display:flex; flex-wrap:wrap; align-items:center; gap:8px; font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:16px;">
+            <span style="padding:10px 20px; border-radius:100px; border:1px solid rgba(0,0,0,.14); cursor:pointer;">CHF 100</span><span style="padding:10px 20px; border-radius:100px; border:1.5px solid #FA5B35; background:linear-gradient(180deg,#FFF1ED,#FEE6DF); cursor:pointer;">CHF 200</span><span style="padding:10px 20px; border-radius:100px; border:1px solid rgba(0,0,0,.14); cursor:pointer;">CHF 500</span><span style="padding:10px 20px; border-radius:100px; border:1px solid rgba(0,0,0,.14); cursor:pointer;">Other</span>
+          </div>
+          <div style="height:1px; background:rgba(0,0,0,.12);"></div>
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <div style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:19px;">CHF 2’400 over the next year</div>
+            <div style="font-size:13px; line-height:1.5; color:#5f574f;">Taken on the 1st. Skip or change any month. It isn’t a contract.</div>
+          </div>
+          <div style="font-size:12.5px; line-height:1.45; color:#8a827a;">Keep money you’ll need in the next two years out of this. Start smaller if you’re unsure. Raising it later is one tap.</div>
+        </div>
+        <div style="padding:18px 26px 30px;">
+          <div onClick="{{ toPayment }}" style="background:#16130f; color:#fff; border-radius:100px; padding:17px 0; text-align:center; font-size:15px; cursor:pointer;" style-hover="opacity:.85">Continue</div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ atPayment }}" hint-placeholder-val="{{ false }}">
+        <div style="flex:1; padding:22px 26px 0; display:flex; flex-direction:column; gap:19px; overflow:hidden;">
+          <div style="display:flex; align-items:center; gap:16px; font-size:13px; color:#8a827a;">
+            <span onClick="{{ toRhythm }}" style="cursor:pointer;">Back</span>
+            <span style="flex:1; height:1px; background:rgba(0,0,0,.12); position:relative;"><span style="position:absolute; left:0; top:0; width:100%; height:1px; background:#16130f;"></span></span>
+            <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:11px;">05/05</span>
+          </div>
+          <div style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:27px; line-height:1.2;">Your first CHF 200</div>
+          <div style="display:flex; flex-direction:column; border-bottom:1px solid rgba(0,0,0,.12); padding-bottom:4px;">
+            <div style="display:flex; align-items:baseline; justify-content:space-between; padding:14px 0;"><span style="font-size:13.5px;">Whole-world funds</span><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:17px;">CHF 140</span></div>
+            <div style="display:flex; align-items:baseline; justify-content:space-between; padding:14px 0; border-top:1px solid rgba(0,0,0,.12);"><span style="font-size:13.5px;">Climate + Education</span><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:17px;">CHF 60</span></div>
+            <div style="display:flex; align-items:baseline; justify-content:space-between; padding:14px 0; border-top:1px solid rgba(0,0,0,.12);"><span style="font-size:13.5px;">Fee this month</span><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:17px;">CHF 1.60</span></div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <div style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:9.5px; letter-spacing:.18em; color:#8a827a;">IF YOU CHANGE YOUR MIND</div>
+            <div style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:17px; line-height:1.3;">Pause or take it all back any time. No fee, money back in two days.</div>
+          </div>
+          <div style="display:flex; gap:12px; align-items:center;">
+            <span style="display:flex;">
+              <span style="width:30px; height:30px; border-radius:50%; background:#f1ede8; flex:none; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:12px; color:#8a827a;">S</span><image-slot id="av-sophie-2" shape="circle" placeholder="" src="./people/sophie.png" style="position:absolute; inset:0; width:100%; height:100%;"></image-slot></span>
+              <span style="margin-left:-9px; display:flex;"><span style="width:30px; height:30px; border-radius:50%; background:#f1ede8; flex:none; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:12px; color:#8a827a;">M</span><image-slot id="av-marta" shape="circle" placeholder="" src="./people/marta.png" style="position:absolute; inset:0; width:100%; height:100%;"></image-slot></span></span>
+            </span>
+            <span style="font-size:12.5px; color:#8a827a;">Sophie and Marta start their month the same way</span>
+          </div>
+          <div style="height:1px; background:rgba(0,0,0,.12);"></div>
+          <div style="display:flex; flex-direction:column; gap:14px;">
+            <div style="display:flex; align-items:center; justify-content:space-between;"><span style="font-size:13.5px;">Repeat monthly</span><span style="width:40px; height:21px; border-radius:100px; background:#FA5B35; display:flex; align-items:center; justify-content:flex-end; padding:2px;"><span style="width:17px; height:17px; border-radius:50%; background:#fff;"></span></span></div>
+            <div style="display:flex; align-items:center; justify-content:space-between;"><span style="font-size:13.5px;">Remind me before each payment</span><span style="width:40px; height:21px; border-radius:100px; border:1px solid rgba(0,0,0,.25); display:flex; align-items:center; padding:2px;"><span style="width:17px; height:17px; border-radius:50%; background:#e6e1da;"></span></span></div>
+          </div>
+          <div style="font-size:12.5px; line-height:1.45; color:#8a827a;">Not ready? Try it with pretend money for a month, with no payment.</div>
+        </div>
+        <div style="padding:18px 26px 30px;">
+          <div onClick="{{ toLater }}" style="background:#16130f; color:#fff; border-radius:100px; padding:17px 0; text-align:center; font-size:15px; cursor:pointer;" style-hover="opacity:.85">Invest CHF 200</div>
+        </div>
+      </sc-if>
+
+      
+
+      <sc-if value="{{ atHome }}" hint-placeholder-val="{{ false }}">
+        <div style="flex:1; padding:22px 26px 0; display:flex; flex-direction:column; gap:15px; overflow:hidden;">
+          <div style="display:flex; align-items:center; gap:7px;"><svg viewBox="0 2 28 28" style="width:20px; height:20px; flex:none;"><path d="M0 21 A14 14 0 0 1 28 21 Z" fill="#FA5B35"></path><rect x="0" y="24.2" width="28" height="2.4" fill="#FA5B35"></rect></svg><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:21px; line-height:1; letter-spacing:-.01em;">Alba</span><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:400; font-size:12px; line-height:1; color:#a39b93; margin-left:2px; align-self:flex-end; padding-bottom:2px;">by Swissquote</span></div>
+          <div style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:27px; line-height:1.2;">Two years in, {{ firstName }}.</div>
+          <div style="display:flex; flex-direction:column; gap:9px; padding-bottom:20px; border-bottom:1px solid rgba(0,0,0,.12);">
+            <div style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:9.5px; letter-spacing:.18em; color:#8a827a;">YOU HAVE</div>
+            <div style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:700; font-size:44px; line-height:1; display:flex; align-items:baseline; gap:6px;"><span style="font-size:20px;">CHF</span><span>5’260</span></div>
+            <div style="display:flex; align-items:baseline; gap:10px; font-size:13px;"><span style="color:#1E8A5E;">+CHF 310 this year</span><span style="color:#8a827a;">· you paid in CHF 4’800</span></div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:9px; padding-bottom:16px; border-bottom:1px solid rgba(0,0,0,.12);">
+            <div style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:9.5px; letter-spacing:.18em; color:#8a827a;">IF YOU KEEP GOING</div>
+            <svg viewBox="0 0 338 104" style="width:100%; height:92px; display:block;">
+              <path d="M68,94 C150,82 250,48 338,22 L338,56 C250,70 150,84 68,94 Z" fill="rgba(250,91,53,.4)"></path>
+              <path d="M68,94 C150,83 250,62 338,40" fill="none" stroke="#FA5B35" stroke-width="1.6" stroke-dasharray="4 4"></path>
+              <path d="M0,100 C25,99 45,97 68,94" fill="none" stroke="#16130f" stroke-width="2"></path>
+              <circle cx="68" cy="94" r="3.5" fill="#16130f"></circle>
+            </svg>
+            <div style="position:relative; height:12px; font-family:'Swissquote CT',Helvetica,sans-serif; font-size:9px; letter-spacing:.12em; color:#8a827a;"><span style="position:absolute; left:0;">2024</span><span style="position:absolute; left:20%; transform:translateX(-50%); color:#16130f;">TODAY</span><span style="position:absolute; right:0;">2034</span></div>
+            <div style="display:flex; align-items:baseline; justify-content:space-between; gap:12px;">
+              <span style="font-size:12.5px; line-height:1.45; color:#5f574f;">Keep CHF 200 a month and this is roughly where you land.</span>
+              <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:19px; white-space:nowrap;">CHF 29’300</span>
+            </div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:10px;">
+            <div style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:9.5px; letter-spacing:.18em; color:#8a827a;">HAPPENING SOON IN YOUR AREA</div>
+            <div style="display:flex; align-items:center; gap:14px; padding:12px; border-radius:18px; border:1px solid rgba(0,0,0,.16); cursor:pointer;">
+              <span style="width:52px; height:56px; border-radius:13px; background:#FEDCD3; flex:none; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1px;">
+                <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:10px; letter-spacing:.1em; color:#5f574f;">SEP</span>
+                <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:24px; line-height:1;">24</span>
+              </span>
+              <span style="flex:1; display:flex; flex-direction:column; gap:5px;">
+                <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:10px; letter-spacing:.1em; color:#FA5B35; background:rgba(250,91,53,.14); border-radius:100px; padding:4px 10px; align-self:flex-start;">MEET-UP · ZÜRICH</span>
+                <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:15.5px; line-height:1.25;">Coffee &amp; first investments</span>
+                <span style="font-size:12.5px; color:#5f574f;">18:30 · 14 going, incl. Sophie</span>
+              </span>
+            </div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:14px;">
+            <div style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:9.5px; letter-spacing:.18em; color:#8a827a;">YOUR CIRCLE</div>
+            <div onClick="{{ toCircle }}" style="display:flex; gap:14px; align-items:flex-start; cursor:pointer;">
+              <span style="width:36px; height:36px; border-radius:50%; background:#f1ede8; flex:none; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:12px; color:#8a827a;">A</span><image-slot id="av-amina" shape="circle" placeholder="" src="./people/amina.png" style="position:absolute; inset:0; width:100%; height:100%;"></image-slot></span>
+              <span style="flex:1; display:flex; flex-direction:column; gap:4px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:400; font-size:16px; line-height:1.35;">“Is 200 too little?”</span><span style="font-size:12.5px; color:#8a827a;">Amina · 14 answers · you answered</span></span>
+            </div>
+                      </div>
+          <div style="margin-top:auto; padding:15px 0; border-top:1px solid rgba(0,0,0,.12); display:flex; align-items:center; justify-content:space-between; font-size:13px; color:#5f574f;"><span>Next payment 1 Oct · CHF 200</span><span style="border-bottom:1px solid rgba(0,0,0,.3); padding-bottom:2px; color:#16130f; cursor:pointer;">Manage</span></div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ atWealth }}" hint-placeholder-val="{{ false }}">
+        <div style="flex:1; padding:24px 26px 0; display:flex; flex-direction:column; gap:17px; overflow-y:auto;">
+          <div style="display:flex; align-items:center; gap:7px;"><svg viewBox="0 2 28 28" style="width:20px; height:20px; flex:none;"><path d="M0 21 A14 14 0 0 1 28 21 Z" fill="#FA5B35"></path><rect x="0" y="24.2" width="28" height="2.4" fill="#FA5B35"></rect></svg><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:21px; line-height:1; letter-spacing:-.01em;">Alba</span><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:400; font-size:12px; line-height:1; color:#a39b93; margin-left:2px; align-self:flex-end; padding-bottom:2px;">by Swissquote</span></div>
+          <div style="position:relative; display:flex; flex-direction:column; gap:9px;">
+            <div style="position:relative; font-family:'Swissquote CT',Helvetica,sans-serif; font-size:9.5px; letter-spacing:.18em; color:#8a827a;">YOUR WEALTH</div>
+            <div style="position:relative; font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:42px; line-height:1;">CHF 5’260</div>
+            <div style="position:relative; display:flex; align-items:center; gap:8px; font-size:13px; line-height:1.5;"><span style="background:#E3F3EA; color:#1E8A5E; border-radius:100px; padding:3px 10px; font-weight:500;">+CHF 310 this year</span><span style="color:#8a827a;">since September 2024</span></div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:9px; padding-bottom:18px; border-bottom:1px solid rgba(0,0,0,.12);">
+            <div style="height:8px; display:flex; gap:3px;">
+              <span style="width:55%; border-radius:100px; background:linear-gradient(180deg,#2c2723,#16130f);"></span><span style="width:22%; border-radius:100px; background:linear-gradient(180deg,#8b837a,#6f675f);"></span><span style="width:17%; border-radius:100px; background:linear-gradient(180deg,#FA5B35,#FA5B35); "></span><span style="width:6%; border-radius:100px; background:#FEDCD3;"></span>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; gap:14px; font-size:12px; color:#5f574f;">
+              <span style="display:flex; align-items:center; gap:6px;"><span style="width:8px; height:8px; background:#16130f;"></span>ETFs</span>
+              <span style="display:flex; align-items:center; gap:6px;"><span style="width:8px; height:8px; background:#6f675f;"></span>Themes</span>
+              <span style="display:flex; align-items:center; gap:6px;"><span style="width:8px; height:8px; background:#FA5B35;"></span>Pension 3a</span>
+              <span style="display:flex; align-items:center; gap:6px;"><span style="width:8px; height:8px; background:#FEDCD3;"></span>Cash</span>
+            </div>
+          </div>
+          
+            <div style="display:flex; align-items:baseline; justify-content:space-between; padding-top:4px;">
+              <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:16px;">ETFs</span><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:13px; color:#16130f; background:rgba(22,19,15,.06); border-radius:100px; padding:5px 12px;">CHF 2’880</span>
+            </div>
+          <div style="display:flex; flex-direction:column;">
+            <div style="display:flex; align-items:flex-start; gap:14px; padding:13px 0; ">
+              <span style="width:38px; height:38px; border-radius:11px; background:#E4E7F2; flex:none; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center;"><svg viewBox="0 0 38 38" style="width:38px; height:38px;"><path d="M9,19 A10,10 0 0,1 29,19 M9,19 A10,10 0 0,0 29,19 M19,9 L19,29 M9,19 L29,19" fill="none" stroke="#16130f" stroke-width="1.2" stroke-linecap="round" opacity=".55"></path></svg></span><span style="flex:1; display:flex; flex-direction:column; gap:3px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:15.5px; line-height:1.25;">World fund</span><span style="font-size:12.5px; color:#8a827a; line-height:1.35;">Growing slowly and steadily</span></span>
+              <span style="display:flex; flex-direction:column; align-items:flex-end; gap:3px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:16px;">CHF 2’050</span><span style="font-size:12.5px; font-weight:500; color:#1E8A5E; ">+CHF 140</span></span>
+            </div>
+            <div style="display:flex; align-items:flex-start; gap:14px; padding:13px 0; border-top:1px solid rgba(0,0,0,.12);">
+              <span style="width:38px; height:38px; border-radius:11px; background:#F2E7E7; flex:none; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center;"><svg viewBox="0 0 38 38" style="width:38px; height:38px;"><path d="M19,10 L19,28 M12,19 L26,19" fill="none" stroke="#16130f" stroke-width="1.2" stroke-linecap="round" opacity=".55"></path></svg></span><span style="flex:1; display:flex; flex-direction:column; gap:3px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:15.5px; line-height:1.25;">Swiss fund</span><span style="font-size:12.5px; color:#8a827a; line-height:1.35;">Flat this month, that’s normal</span></span>
+              <span style="display:flex; flex-direction:column; align-items:flex-end; gap:3px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:16px;">CHF 830</span><span style="font-size:12.5px; font-weight:500; color:#1E8A5E; ">+CHF 20</span></span>
+            </div></div>
+          
+            <div style="display:flex; align-items:baseline; justify-content:space-between; padding-top:4px;">
+              <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:16px;">Themes</span><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:13px; color:#16130f; background:rgba(111,103,95,.14); border-radius:100px; padding:5px 12px;">CHF 1’180</span>
+            </div>
+          <div style="display:flex; flex-direction:column;">
+            <div style="display:flex; align-items:flex-start; gap:14px; padding:13px 0; ">
+              <span style="width:38px; height:38px; border-radius:11px; background:#FEE6DF; flex:none; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center;"><svg viewBox="0 0 38 38" style="width:38px; height:38px;"><path d="M19,28 C10,24 10,12 19,9 C28,12 28,24 19,28 M19,28 L19,14" fill="none" stroke="#16130f" stroke-width="1.2" stroke-linecap="round" opacity=".55"></path></svg></span><span style="flex:1; display:flex; flex-direction:column; gap:3px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:15.5px; line-height:1.25;">Climate Transition</span><span style="font-size:12.5px; color:#8a827a; line-height:1.35;">Held by 4’120 members</span></span>
+              <span style="display:flex; flex-direction:column; align-items:flex-end; gap:3px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:16px;">CHF 710</span><span style="font-size:12.5px; font-weight:500; color:#1E8A5E; ">+CHF 70</span></span>
+            </div>
+            <div style="display:flex; align-items:flex-start; gap:14px; padding:13px 0; border-top:1px solid rgba(0,0,0,.12);">
+              <span style="width:38px; height:38px; border-radius:11px; background:#EDE6F2; flex:none; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center;"><svg viewBox="0 0 38 38" style="width:38px; height:38px;"><path d="M19,9 A6,6 0 1,1 19,21 A6,6 0 1,1 19,9 M19,21 L19,29 M14,25 L24,25" fill="none" stroke="#16130f" stroke-width="1.2" stroke-linecap="round" opacity=".55"></path></svg></span><span style="flex:1; display:flex; flex-direction:column; gap:3px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:15.5px; line-height:1.25;">Women in Leadership</span><span style="font-size:12.5px; color:#8a827a; line-height:1.35;">Held by 3’540 members</span></span>
+              <span style="display:flex; flex-direction:column; align-items:flex-end; gap:3px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:16px;">CHF 470</span><span style="font-size:12.5px; color:#8a827a;">−CHF 10</span></span>
+            </div></div>
+          
+            <div style="display:flex; align-items:baseline; justify-content:space-between; padding-top:4px;">
+              <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:16px;">Pension 3a</span><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:13px; color:#16130f; background:rgba(250,91,53,.14); border-radius:100px; padding:5px 12px;">CHF 900</span>
+            </div>
+          <div style="display:flex; flex-direction:column;">
+            <div style="display:flex; align-items:flex-start; gap:14px; padding:13px 0; ">
+              <span style="width:38px; height:38px; border-radius:11px; background:#FEEBE5; flex:none; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center;"><svg viewBox="0 0 38 38" style="width:38px; height:38px;"><path d="M11,15 L27,15 L27,27 L11,27 Z M11,15 L19,9 L27,15 M17,27 L17,21 L21,21 L21,27" fill="none" stroke="#16130f" stroke-width="1.2" stroke-linecap="round" opacity=".55"></path></svg></span><span style="flex:1; display:flex; flex-direction:column; gap:3px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:15.5px; line-height:1.25;">Retirement savings</span><span style="font-size:12.5px; color:#8a827a; line-height:1.35;">CHF 6’400 left to save tax-free this year</span></span>
+              <span style="display:flex; flex-direction:column; align-items:flex-end; gap:3px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:16px;">CHF 900</span><span style="font-size:12.5px; font-weight:500; color:#1E8A5E; ">+CHF 30</span></span>
+            </div></div>
+          <div style="display:flex; align-items:center; gap:14px; padding:16px 18px; margin-top:4px; border-radius:18px; border:1.5px solid #16130f;">
+            <span style="flex:1; display:flex; flex-direction:column; gap:3px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:16px;">Cash</span><span style="font-size:12.5px; color:#8a827a;">Not invested yet</span></span>
+            <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:16px;">CHF 300</span>
+            <span style="background:#16130f; color:#fff; border-radius:100px; padding:10px 18px; font-size:13px; cursor:pointer;">Invest</span>
+          </div>
+          <div style="padding:4px 0 18px; font-size:12.5px; line-height:1.45; color:#8a827a;">Next payment 1 Oct · CHF 200</div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ atCircle }}" hint-placeholder-val="{{ false }}">
+        <div style="flex:1; padding:20px 26px 0; display:flex; flex-direction:column; gap:16px; overflow-y:auto;">
+          <div style="display:flex; align-items:center; justify-content:space-between;"><div style="display:flex; align-items:center; gap:7px;"><svg viewBox="0 2 28 28" style="width:20px; height:20px; flex:none;"><path d="M0 21 A14 14 0 0 1 28 21 Z" fill="#FA5B35"></path><rect x="0" y="24.2" width="28" height="2.4" fill="#FA5B35"></rect></svg><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:21px; line-height:1; letter-spacing:-.01em;">Alba</span><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:400; font-size:12px; line-height:1; color:#a39b93; margin-left:2px; align-self:flex-end; padding-bottom:2px;">by Swissquote</span></div><span style="font-size:12px; color:#8a827a;">You’re anonymous here</span></div>
+          <div style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:27px; line-height:1.25;">You’re <span>not alone</span> in this.</div>
+          <div style="display:flex; align-items:center; gap:10px; padding:7px 7px 7px 17px; border-radius:100px; border:1px solid rgba(0,0,0,.18);">
+            <span style="flex:1; font-size:13px; color:#8a827a;">Ask the community a question…</span>
+            <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:13px; background:#16130f; color:#fff; border-radius:100px; padding:10px 18px; cursor:pointer;">Ask</span>
+          </div>
+
+          <div style="display:flex; align-items:baseline; justify-content:space-between;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:9.5px; letter-spacing:.18em; color:#8a827a;">COMING UP</span><span style="font-size:12px; color:#8a827a; cursor:pointer;">All events</span></div>
+          <div style="display:flex; flex-direction:column; gap:10px;">
+            
+            <div style="display:flex; align-items:center; gap:13px; padding:12px; border-radius:18px; border:1.5px solid #16130f; cursor:pointer;">
+              <span style="width:50px; height:54px; border-radius:13px; background:#FEDCD3; flex:none; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1px;">
+                <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:9.5px; letter-spacing:.1em; color:#5f574f;">SEP</span>
+                <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:23px; line-height:1;">24</span>
+              </span>
+              <span style="flex:1; display:flex; flex-direction:column; gap:4px;">
+                <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:9.5px; letter-spacing:.1em; color:#FA5B35; background:rgba(250,91,53,.14); border-radius:100px; padding:4px 9px; align-self:flex-start;">MEET-UP · ZÜRICH</span>
+                <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:15px; line-height:1.25;">Coffee &amp; first investments</span>
+                <span style="font-size:12.5px; color:#5f574f;">18:30 · 14 going, incl. Sophie</span>
+              </span>
+            </div>
+            
+            <div style="display:flex; align-items:center; gap:13px; padding:12px; border-radius:18px; border:1px solid rgba(0,0,0,.16); cursor:pointer;">
+              <span style="width:50px; height:54px; border-radius:13px; background:#FEDCD3; flex:none; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1px;">
+                <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:9.5px; letter-spacing:.1em; color:#5f574f;">OCT</span>
+                <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:23px; line-height:1;">2</span>
+              </span>
+              <span style="flex:1; display:flex; flex-direction:column; gap:4px;">
+                <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:9.5px; letter-spacing:.1em; color:#FA5B35; background:rgba(250,91,53,.14); border-radius:100px; padding:4px 9px; align-self:flex-start;">WEBINAR · ONLINE</span>
+                <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:15px; line-height:1.25;">Pension 3a, explained without jargon</span>
+                <span style="font-size:12.5px; color:#5f574f;">12:15 · 45 min · 320 signed up</span>
+              </span>
+            </div>
+          </div>
+
+          <div style="display:flex; align-items:baseline; justify-content:space-between;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:9.5px; letter-spacing:.18em; color:#8a827a;">INVESTORS TO FOLLOW</span><span style="font-size:12px; color:#8a827a; cursor:pointer;">See all</span></div>
+          <div style="display:flex; flex:none; flex-shrink:0; min-height:196px; gap:11px; overflow-x:auto; padding:0 26px 2px; margin:0 -26px; scrollbar-width:none;">
+            
+              <div style="width:150px; flex:none; display:flex; flex-direction:column; gap:9px; padding:15px; border:1px solid rgba(0,0,0,.12); border-radius:20px;">
+                <span style="width:40px; height:40px; border-radius:50%; overflow:hidden; background:#f1ede8; flex:none;"><img src="./people/sophie.png" style="width:100%; height:100%; object-fit:cover; display:block;" alt=""></span>
+                <span style="display:flex; flex-direction:column; gap:3px;">
+                  <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:14px;">Sophie, 34</span>
+                  <span style="font-size:11.5px; line-height:1.35; color:#8a827a;">Started at 32 · Zürich</span>
+                </span>
+                <span style="display:flex; align-items:baseline; gap:6px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:13.5px; color:#1E8A5E;">+7.4%</span><span style="font-size:11px; color:#8a827a;">this year</span></span>
+                <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:12.5px; text-align:center; border-radius:100px; padding:9px 0; cursor:pointer; background:#16130f; color:#fff;">Follow</span>
+              </div>
+            
+              <div style="width:150px; flex:none; display:flex; flex-direction:column; gap:9px; padding:15px; border:1px solid rgba(0,0,0,.12); border-radius:20px;">
+                <span style="width:40px; height:40px; border-radius:50%; overflow:hidden; background:#f1ede8; flex:none;"><img src="./people/marta.png" style="width:100%; height:100%; object-fit:cover; display:block;" alt=""></span>
+                <span style="display:flex; flex-direction:column; gap:3px;">
+                  <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:14px;">Marta, 29</span>
+                  <span style="font-size:11.5px; line-height:1.35; color:#8a827a;">Answers a lot · Lausanne</span>
+                </span>
+                <span style="display:flex; align-items:baseline; gap:6px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:13.5px; color:#1E8A5E;">+5.9%</span><span style="font-size:11px; color:#8a827a;">this year</span></span>
+                <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:12.5px; text-align:center; border-radius:100px; padding:9px 0; cursor:pointer; background:rgba(22,19,15,.07); color:#5f574f;">Following</span>
+              </div>
+            
+              <div style="width:150px; flex:none; display:flex; flex-direction:column; gap:9px; padding:15px; border:1px solid rgba(0,0,0,.12); border-radius:20px;">
+                <span style="width:40px; height:40px; border-radius:50%; overflow:hidden; background:#f1ede8; flex:none;"><img src="./people/lena.png" style="width:100%; height:100%; object-fit:cover; display:block;" alt=""></span>
+                <span style="display:flex; flex-direction:column; gap:3px;">
+                  <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:14px;">Lena, 41</span>
+                  <span style="font-size:11.5px; line-height:1.35; color:#8a827a;">Climate themes · Bern</span>
+                </span>
+                <span style="display:flex; align-items:baseline; gap:6px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:13.5px; color:#1E8A5E;">+6.8%</span><span style="font-size:11px; color:#8a827a;">this year</span></span>
+                <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:12.5px; text-align:center; border-radius:100px; padding:9px 0; cursor:pointer; background:#16130f; color:#fff;">Follow</span>
+              </div>
+          </div>
+          <div style="font-size:11.5px; line-height:1.45; color:#8a827a;">Members choose to show their percentage. Nobody ever sees your amounts.</div>
+
+          <div style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:9.5px; letter-spacing:.18em; color:#8a827a;">FROM YOUR CIRCLE</div>
+          <div style="display:flex; flex-direction:column;">
+            
+            <div style="display:flex; gap:13px; align-items:flex-start; padding:14px 0; ">
+              <span style="width:36px; height:36px; border-radius:50%; overflow:hidden; background:#f1ede8; flex:none;"><img src="./people/amina.png" style="width:100%; height:100%; object-fit:cover; display:block;" alt=""></span>
+              <span style="flex:1; display:flex; flex-direction:column; gap:5px;">
+                <span style="display:flex; align-items:baseline; gap:8px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:13.5px;">Amina, 36</span><span style="font-size:11.5px; color:#8a827a;">2h ago</span></span>
+                <span style="font-size:13.5px; line-height:1.45;">Markets dipped and I did nothing. Feels like progress.</span>
+                <span style="font-size:11.5px; color:#8a827a;">14 replies · 22 ♡</span>
+              </span>
+            </div>
+            
+            <div style="display:flex; gap:13px; align-items:flex-start; padding:14px 0; border-top:1px solid rgba(0,0,0,.12);">
+              <span style="width:36px; height:36px; border-radius:50%; overflow:hidden; background:#f1ede8; flex:none;"><img src="./people/sophie.png" style="width:100%; height:100%; object-fit:cover; display:block;" alt=""></span>
+              <span style="flex:1; display:flex; flex-direction:column; gap:5px;">
+                <span style="display:flex; align-items:baseline; gap:8px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:13.5px;">Sophie, 34</span><span style="font-size:11.5px; color:#8a827a;">yesterday</span></span>
+                <span style="font-size:13.5px; line-height:1.45;">Two years today. CHF 4’800 in, still boring, still working.</span>
+                <span style="font-size:11.5px; color:#8a827a;">31 replies · 88 ♡</span>
+              </span>
+            </div>
+            
+            <div style="display:flex; gap:13px; align-items:flex-start; padding:14px 0; border-top:1px solid rgba(0,0,0,.12);">
+              <span style="width:36px; height:36px; border-radius:50%; overflow:hidden; background:#f1ede8; flex:none;"><img src="./people/daniel.png" style="width:100%; height:100%; object-fit:cover; display:block;" alt=""></span>
+              <span style="flex:1; display:flex; flex-direction:column; gap:5px;">
+                <span style="display:flex; align-items:baseline; gap:8px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:13.5px;">Daniel, 44</span><span style="font-size:11.5px; color:#8a827a;">2 days ago</span></span>
+                <span style="font-size:13.5px; line-height:1.45;">Asked my first question here last month. Nobody laughed.</span>
+                <span style="font-size:11.5px; color:#8a827a;">9 replies · 12 ♡</span>
+              </span>
+            </div>
+          </div>
+
+          <div style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:9.5px; letter-spacing:.18em; color:#8a827a;">TALKING ABOUT NOW</div>
+          <div style="display:flex; flex-direction:column;">
+            
+            <div style="display:flex; align-items:center; gap:13px; padding:13px 0;  cursor:pointer;">
+              <span style="flex:1; display:flex; flex-direction:column; gap:4px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:14.5px; line-height:1.3;">“Should I worry when prices drop?”</span><span style="font-size:12px; color:#8a827a;">48 answers · Marta answered</span></span>
+              <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:12.5px; padding:8px 14px; border-radius:100px; background:rgba(22,19,15,.07);">Read</span>
+            </div>
+            
+            <div style="display:flex; align-items:center; gap:13px; padding:13px 0; border-top:1px solid rgba(0,0,0,.12); cursor:pointer;">
+              <span style="flex:1; display:flex; flex-direction:column; gap:4px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:14.5px; line-height:1.3;">“How much do you keep in cash?”</span><span style="font-size:12px; color:#8a827a;">26 answers · 3 from your circle</span></span>
+              <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:12.5px; padding:8px 14px; border-radius:100px; background:rgba(22,19,15,.07);">Read</span>
+            </div>
+            
+            <div style="display:flex; align-items:center; gap:13px; padding:13px 0; border-top:1px solid rgba(0,0,0,.12); cursor:pointer;">
+              <span style="flex:1; display:flex; flex-direction:column; gap:4px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:14.5px; line-height:1.3;">“Is 3a worth it if I’m self-employed?”</span><span style="font-size:12px; color:#8a827a;">19 answers · new today</span></span>
+              <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:12.5px; padding:8px 14px; border-radius:100px; background:rgba(22,19,15,.07);">Read</span>
+            </div>
+          </div>
+
+          <div style="padding:2px 0 18px; font-size:12.5px; line-height:1.45; color:#8a827a;">Moderated by members who invest here. No tips, no stock picks.</div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ atDiscover }}" hint-placeholder-val="{{ false }}">
+        <div style="flex:1; padding:22px 26px 0; display:flex; flex-direction:column; gap:16px; overflow-y:auto;">
+          <div style="display:flex; align-items:center; gap:7px;"><svg viewBox="0 2 28 28" style="width:20px; height:20px; flex:none;"><path d="M0 21 A14 14 0 0 1 28 21 Z" fill="#FA5B35"></path><rect x="0" y="24.2" width="28" height="2.4" fill="#FA5B35"></rect></svg><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:21px; line-height:1; letter-spacing:-.01em;">Alba</span><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:400; font-size:12px; line-height:1; color:#a39b93; margin-left:2px; align-self:flex-end; padding-bottom:2px;">by Swissquote</span></div>
+          <div style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:27px; line-height:1.25;">Find something you <span>believe in</span>.</div>
+          <div style="display:flex; align-items:center; gap:11px; padding:13px 16px; border-radius:100px; background:#f4f2ef;">
+            <svg viewBox="0 0 16 16" style="width:16px; height:16px; flex:none;"><circle cx="7" cy="7" r="5" fill="none" stroke="#8a827a" stroke-width="1.5"></circle><path d="M10.7 10.7 L14.5 14.5" stroke="#8a827a" stroke-width="1.5" stroke-linecap="round"></path></svg>
+            <span style="font-size:13.5px; color:#8a827a;">Search a theme, fund or company</span>
+          </div>
+          <div style="display:flex; flex:none; flex-shrink:0; align-items:center; gap:8px; min-height:46px; overflow-x:auto; padding:0 26px 2px; margin:0 -26px; scrollbar-width:none;">
+            <span onClick="{{ pickForYou }}" style="{{ chipForYou }}">For you</span>
+            <span onClick="{{ pickThemes }}" style="{{ chipThemes }}">Themes</span>
+            <span onClick="{{ pickEtfs }}" style="{{ chipEtfs }}">ETFs</span>
+            <span onClick="{{ pickShares }}" style="{{ chipShares }}">Shares</span>
+            <span onClick="{{ pickPension }}" style="{{ chipPension }}">Pension 3a</span>
+            <span onClick="{{ pickLow }}" style="{{ chipLow }}">Low risk</span>
+          </div>
+          <sc-if value="{{ showFeatured }}" hint-placeholder-val="{{ true }}">
+          <div style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:9.5px; letter-spacing:.18em; color:#8a827a;">POPULAR WITH MEMBERS LIKE YOU</div>
+          <div style="display:flex; flex-direction:column; gap:13px; padding:17px; border-radius:22px; background:linear-gradient(180deg,#FFF1ED,#FEE6DF);">
+            <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:12px;">
+              <span style="width:44px; height:44px; border-radius:13px; background:#FC8A6E; display:flex; align-items:center; justify-content:center; flex:none;"><svg viewBox="0 0 44 44" style="width:44px; height:44px;"><path d="M22,33 L22,19" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"></path><path d="M22,23 C15,23 12,19 12,14 C18,14 22,17 22,23 Z" fill="#fff" opacity=".92"></path><path d="M22,27 C29,27 32,23 32,18 C26,18 22,21 22,27 Z" fill="#fff" opacity=".7"></path></svg></span>
+              <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:11.5px; padding:5px 11px; border-radius:100px; background:rgba(255,255,255,.8); color:#16130f; white-space:nowrap;">Steady</span>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:6px;">
+              <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:23px; line-height:1.2;">Climate Transition</span>
+              <span style="font-size:13px; line-height:1.5; color:#5f574f;">38 companies working on cleaner energy, transport and buildings.</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px;">
+              <span style="display:flex;">
+                <span style="width:26px; height:26px; border-radius:50%; overflow:hidden; background:#f1ede8; border:1.5px solid #fff; flex:none;"><img src="./people/sophie.png" style="width:100%; height:100%; object-fit:cover; display:block;" alt=""></span>
+                <span style="width:26px; height:26px; border-radius:50%; overflow:hidden; background:#f1ede8; border:1.5px solid #fff; margin-left:-8px; flex:none;"><img src="./people/marta.png" style="width:100%; height:100%; object-fit:cover; display:block;" alt=""></span>
+                <span style="width:26px; height:26px; border-radius:50%; overflow:hidden; background:#f1ede8; border:1.5px solid #fff; margin-left:-8px; flex:none;"><img src="./people/lena.png" style="width:100%; height:100%; object-fit:cover; display:block;" alt=""></span>
+              </span>
+              <span style="font-size:12.5px; color:#5f574f;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500;">4’120 members</span> hold this, incl. Sophie</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:14px;">
+              <span style="background:#16130f; color:#fff; border-radius:100px; padding:12px 20px; font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:13.5px; cursor:pointer;">Take a look</span>
+              <span style="font-size:13px; color:#5f574f;">From CHF 50</span>
+            </div>
+          </div>
+          </sc-if>
+
+          <sc-if value="{{ showThemes }}" hint-placeholder-val="{{ false }}">
+            <div style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:9.5px; letter-spacing:.18em; color:#8a827a;">BY THEME</div>
+            <div style="display:flex; flex:none; flex-shrink:0; align-items:center; gap:7px; min-height:42px; overflow-x:auto; scrollbar-width:none;">
+              <sc-for list="{{ cats }}" as="c" hint-placeholder-count="4">
+                <span onClick="{{ c.pick }}" style="{{ c.style }}">{{ c.label }}</span>
+              </sc-for>
+            </div>
+            <div style="display:flex; flex-direction:column;">
+              <sc-for list="{{ themeList }}" as="t" hint-placeholder-count="5">
+                <div style="display:flex; align-items:center; gap:13px; padding:13px 0; cursor:pointer; border-top:{{ t.rule }};">
+                  <span style="width:38px; height:38px; border-radius:11px; flex:none; background:{{ t.mark }};"></span>
+                  <span style="flex:1; display:flex; flex-direction:column; gap:3px;">
+                    <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:15.5px; line-height:1.25;">{{ t.name }}</span>
+                    <span style="font-size:12.5px; color:#8a827a; line-height:1.35;">{{ t.note }}</span>
+                  </span>
+                  <span style="display:flex; flex-direction:column; align-items:flex-end; gap:5px;">
+                    <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:13px; color:{{ t.changeColor }};">{{ t.change }}</span>
+                    <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:11px; padding:4px 10px; border-radius:100px; white-space:nowrap; color:#16130f; background:{{ t.riskBg }};">{{ t.risk }}</span>
+                  </span>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+          <sc-if value="{{ showFunds }}" hint-placeholder-val="{{ false }}">
+            <div style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:9.5px; letter-spacing:.18em; color:#8a827a;">ETFS &amp; FUNDS</div>
+            <div style="display:flex; flex:none; flex-shrink:0; align-items:center; gap:7px; min-height:42px; overflow-x:auto; scrollbar-width:none;">
+              <sc-for list="{{ etfCats }}" as="c" hint-placeholder-count="4">
+                <span onClick="{{ c.pick }}" style="{{ c.style }}">{{ c.label }}</span>
+              </sc-for>
+            </div>
+            <div style="display:flex; flex-direction:column;">
+              <sc-for list="{{ etfList }}" as="t" hint-placeholder-count="5">
+                <div style="display:flex; align-items:center; gap:13px; padding:13px 0; cursor:pointer; border-top:{{ t.rule }};">
+                  <span style="width:38px; height:38px; border-radius:11px; flex:none; background:{{ t.mark }};"></span>
+                  <span style="flex:1; display:flex; flex-direction:column; gap:3px;">
+                    <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:15.5px; line-height:1.25;">{{ t.name }}</span>
+                    <span style="font-size:12.5px; color:#8a827a; line-height:1.35;">{{ t.note }}</span>
+                  </span>
+                  <span style="display:flex; flex-direction:column; align-items:flex-end; gap:5px;">
+                    <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:13px; color:{{ t.changeColor }};">{{ t.change }}</span>
+                    <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:11px; padding:4px 10px; border-radius:100px; white-space:nowrap; color:#16130f; background:{{ t.riskBg }};">{{ t.risk }}</span>
+                  </span>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+          <sc-if value="{{ showShares }}" hint-placeholder-val="{{ false }}">
+            <div style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:9.5px; letter-spacing:.18em; color:#8a827a;">SINGLE SHARES</div>
+            <div style="display:flex; flex-direction:column;">
+              
+              <div style="display:flex; align-items:center; gap:13px; padding:13px 0;  cursor:pointer;">
+                <span style="width:38px; height:38px; border-radius:11px; background:#F0EDE7; flex:none;"></span>
+                <span style="flex:1; display:flex; flex-direction:column; gap:3px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:15.5px; line-height:1.25;">Swiss blue chips</span><span style="font-size:12.5px; color:#8a827a; line-height:1.35;">24 companies · buy one at a time</span></span>
+                <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:11.5px; padding:5px 11px; border-radius:100px; background:#F6E3DC; color:#16130f; white-space:nowrap;">Bold</span>
+              </div>
+              
+              <div style="display:flex; align-items:center; gap:13px; padding:13px 0; border-top:1px solid rgba(0,0,0,.12); cursor:pointer;">
+                <span style="width:38px; height:38px; border-radius:11px; background:#EAE7F2; flex:none;"></span>
+                <span style="flex:1; display:flex; flex-direction:column; gap:3px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:15.5px; line-height:1.25;">Global tech</span><span style="font-size:12.5px; color:#8a827a; line-height:1.35;">Moves a lot, in both directions</span></span>
+                <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:11.5px; padding:5px 11px; border-radius:100px; background:#F6E3DC; color:#16130f; white-space:nowrap;">Bold</span>
+              </div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ showPension }}" hint-placeholder-val="{{ false }}">
+            <div style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:9.5px; letter-spacing:.18em; color:#8a827a;">PENSION 3A</div>
+            <div style="display:flex; flex-direction:column;">
+              
+              <div style="display:flex; align-items:center; gap:13px; padding:13px 0;  cursor:pointer;">
+                <span style="width:38px; height:38px; border-radius:11px; background:#E8EFDC; flex:none;"></span>
+                <span style="flex:1; display:flex; flex-direction:column; gap:3px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:15.5px; line-height:1.25;">Retirement savings</span><span style="font-size:12.5px; color:#8a827a; line-height:1.35;">CHF 6’400 left to save tax-free this year</span></span>
+                <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:11.5px; padding:5px 11px; border-radius:100px; background:#EEF1F4; color:#16130f; white-space:nowrap;">Calm</span>
+              </div>
+              
+              <div style="display:flex; align-items:center; gap:13px; padding:13px 0; border-top:1px solid rgba(0,0,0,.12); cursor:pointer;">
+                <span style="width:38px; height:38px; border-radius:11px; background:#EDF2E4; flex:none;"></span>
+                <span style="flex:1; display:flex; flex-direction:column; gap:3px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:15.5px; line-height:1.25;">3a Sustainable</span><span style="font-size:12.5px; color:#8a827a; line-height:1.35;">Same tax break, climate-screened</span></span>
+                <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:11.5px; padding:5px 11px; border-radius:100px; background:rgba(250,91,53,.14); color:#16130f; white-space:nowrap;">Steady</span>
+              </div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ showCalm }}" hint-placeholder-val="{{ false }}">
+            <div style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:9.5px; letter-spacing:.18em; color:#8a827a;">MOVES THE LEAST</div>
+            <div style="display:flex; flex-direction:column;">
+              
+              <div style="display:flex; align-items:center; gap:13px; padding:13px 0;  cursor:pointer;">
+                <span style="width:38px; height:38px; border-radius:11px; background:#E4E7F2; flex:none;"></span>
+                <span style="flex:1; display:flex; flex-direction:column; gap:3px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:15.5px; line-height:1.25;">World fund</span><span style="font-size:12.5px; color:#8a827a; line-height:1.35;">11’200 members · most popular</span></span>
+                <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:11.5px; padding:5px 11px; border-radius:100px; background:#EEF1F4; color:#16130f; white-space:nowrap;">Calm</span>
+              </div>
+              
+              <div style="display:flex; align-items:center; gap:13px; padding:13px 0; border-top:1px solid rgba(0,0,0,.12); cursor:pointer;">
+                <span style="width:38px; height:38px; border-radius:11px; background:#F2E7E7; flex:none;"></span>
+                <span style="flex:1; display:flex; flex-direction:column; gap:3px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:15.5px; line-height:1.25;">Swiss fund</span><span style="font-size:12.5px; color:#8a827a; line-height:1.35;">6’400 members hold this</span></span>
+                <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:11.5px; padding:5px 11px; border-radius:100px; background:#EEF1F4; color:#16130f; white-space:nowrap;">Calm</span>
+              </div>
+              
+              <div style="display:flex; align-items:center; gap:13px; padding:13px 0; border-top:1px solid rgba(0,0,0,.12); cursor:pointer;">
+                <span style="width:38px; height:38px; border-radius:11px; background:#DFEEE4; flex:none;"></span>
+                <span style="flex:1; display:flex; flex-direction:column; gap:3px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:15.5px; line-height:1.25;">Health &amp; ageing well</span><span style="font-size:12.5px; color:#8a827a; line-height:1.35;">2’240 members hold this</span></span>
+                <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:11.5px; padding:5px 11px; border-radius:100px; background:#EEF1F4; color:#16130f; white-space:nowrap;">Calm</span>
+              </div>
+              
+              <div style="display:flex; align-items:center; gap:13px; padding:13px 0; border-top:1px solid rgba(0,0,0,.12); cursor:pointer;">
+                <span style="width:38px; height:38px; border-radius:11px; background:#E8EFDC; flex:none;"></span>
+                <span style="flex:1; display:flex; flex-direction:column; gap:3px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:15.5px; line-height:1.25;">Retirement savings</span><span style="font-size:12.5px; color:#8a827a; line-height:1.35;">Tax-free, locked until you retire</span></span>
+                <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:11.5px; padding:5px 11px; border-radius:100px; background:#EEF1F4; color:#16130f; white-space:nowrap;">Calm</span>
+              </div>
+            </div>
+          </sc-if>
+          <div style="padding:4px 0 18px; font-size:12.5px; line-height:1.45; color:#8a827a;">Calm, Steady and Bold describe how much a holding moves, not how good it is.</div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ atLearn }}" hint-placeholder-val="{{ false }}">
+        <div style="flex:1; padding:20px 26px 0; display:flex; flex-direction:column; gap:16px; overflow-y:auto;">
+          <div style="display:flex; align-items:center; justify-content:space-between;">
+            <div style="display:flex; align-items:center; gap:7px;"><svg viewBox="0 2 28 28" style="width:20px; height:20px; flex:none;"><path d="M0 21 A14 14 0 0 1 28 21 Z" fill="#FA5B35"></path><rect x="0" y="24.2" width="28" height="2.4" fill="#FA5B35"></rect></svg><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:21px; line-height:1; letter-spacing:-.01em;">Alba</span><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:400; font-size:12px; line-height:1; color:#a39b93; margin-left:2px; align-self:flex-end; padding-bottom:2px;">by Swissquote</span></div>
+            <span style="display:flex; align-items:center; gap:7px; background:linear-gradient(180deg,#FFF1ED,#FEE6DF); border-radius:100px; padding:7px 13px;"><span style="width:6px; height:6px; border-radius:50%; background:#FA5B35;"></span><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:12px;">3 week streak</span></span>
+          </div>
+          <div style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:28px; line-height:1.2;">Five minutes a week is <span>plenty</span>.</div>
+
+          <div style="display:flex; flex-direction:column; gap:14px; padding:17px; border-radius:22px; background:#16130f; color:#fff;">
+            <div style="display:flex; align-items:center; justify-content:space-between;">
+              <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:9.5px; letter-spacing:.18em; color:rgba(255,255,255,.6);">CONTINUE</span>
+              <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:11.5px; padding:5px 11px; border-radius:100px; background:#FEDCD3; color:#16130f;">4 MIN</span>
+            </div>
+            <div style="display:flex; justify-content:center; flex:none; flex-shrink:0;">
+              <div style="position:relative; width:196px; aspect-ratio:9/16; flex:none; border-radius:14px; overflow:hidden; background:#000; cursor:pointer;">
+                <img src="./people/lesson-still.png" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block;" alt="">
+                <span style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:54px; height:54px; border-radius:50%; background:rgba(255,255,255,.92); display:flex; align-items:center; justify-content:center;">
+                  <svg viewBox="0 0 24 24" style="width:20px; height:20px; margin-left:3px;"><path d="M8 5 L19 12 L8 19 Z" fill="#16130f"></path></svg>
+                </span>
+              </div>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:5px;">
+              <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:17px; line-height:1.3;">What is an ETF?</span>
+              <span style="font-size:12.5px; color:rgba(255,255,255,.65);">Chapter 2, ETFs, video 1 of 4</span>
+            </div>
+          </div>
+
+          <div style="display:flex; align-items:baseline; justify-content:space-between;">
+            <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:21px;">Your path</span>
+            <span style="font-size:12.5px; color:#8a827a;">4 of 21 done</span>
+          </div>
+          <div style="flex:none; flex-shrink:0; height:6px; min-height:6px; border-radius:100px; background:rgba(22,19,15,.08); overflow:hidden;"><span style="display:block; width:19%; height:100%; border-radius:100px; background:#FA5B35;"></span></div>
+          <div style="display:flex; flex-direction:column; gap:10px;">
+            <sc-for list="{{ chapters }}" as="c" hint-placeholder-count="4">
+              <div style="display:flex; flex-direction:column; border-radius:18px; padding:14px; background:{{ c.bg }}; border:{{ c.border }};">
+                <div onClick="{{ c.toggle }}" style="display:flex; align-items:center; gap:14px; cursor:pointer;">
+                  <span style="width:34px; height:34px; border-radius:50%; flex:none; display:flex; align-items:center; justify-content:center; font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:13.5px; background:{{ c.badgeBg }}; color:{{ c.badgeColor }}; border:{{ c.badgeBorder }};">{{ c.badge }}</span>
+                  <span style="flex:1; display:flex; flex-direction:column; gap:3px;">
+                    <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:15px; line-height:1.25;">{{ c.title }}</span>
+                    <span style="font-size:12.5px; color:#8a827a;">{{ c.meta }}</span>
+                  </span>
+                  <span style="font-size:12px; color:#8a827a;">{{ c.caret }}</span>
+                </div>
+                <sc-if value="{{ c.open }}" hint-placeholder-val="{{ false }}">
+                  <div style="display:flex; flex-direction:column; margin-top:12px; padding-top:4px; border-top:1px solid rgba(0,0,0,.1);">
+                    <sc-for list="{{ c.videos }}" as="v" hint-placeholder-count="3">
+                      <div style="display:flex; align-items:center; gap:12px; padding:11px 0; cursor:pointer;">
+                        <span style="width:26px; height:26px; border-radius:50%; flex:none; display:flex; align-items:center; justify-content:center; font-size:11px; background:{{ v.dotBg }}; color:{{ v.dotColor }};">{{ v.dot }}</span>
+                        <span style="flex:1; font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:13.5px; line-height:1.3; color:{{ v.titleColor }};">{{ v.title }}</span>
+                        <span style="font-size:11.5px; color:#8a827a;">{{ v.dur }}</span>
+                      </div>
+                    </sc-for>
+                  </div>
+                </sc-if>
+              </div>
+            </sc-for>
+          </div>
+
+          <div style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:9.5px; letter-spacing:.18em; color:#8a827a;">ASK ANYTHING</div>
+          <div style="display:flex; flex-wrap:wrap; gap:8px; padding-bottom:20px;">
+            <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:12.5px; padding:10px 15px; border-radius:100px; border:1px solid rgba(0,0,0,.18); color:#5f574f; cursor:pointer;">What is a fund?</span>
+            <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:12.5px; padding:10px 15px; border-radius:100px; border:1px solid rgba(0,0,0,.18); color:#5f574f; cursor:pointer;">Why 3a?</span>
+            <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:12.5px; padding:10px 15px; border-radius:100px; border:1px solid rgba(0,0,0,.18); color:#5f574f; cursor:pointer;">Can I stop?</span>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ showTabs }}" hint-placeholder-val="{{ false }}">
+        <div style="display:grid; grid-template-columns:repeat(5,1fr); align-items:end; border-top:1px solid rgba(0,0,0,.1); padding:9px 12px 24px; background:#fff;">
+          
+          <span onClick="{{ toHome }}" style="display:flex; flex-direction:column; align-items:center; gap:5px; cursor:pointer; color:{{ homeColor }};">
+            <svg viewBox="0 0 24 24" style="width:21px; height:21px; display:block;"><path d="M4 10.5 L12 4 L20 10.5 V20 H14.5 V14.5 H9.5 V20 H4 Z" fill="none" stroke="{{ homeColor }}" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:10px; letter-spacing:.02em;">Home</span>
+          </span>
+          
+          <span onClick="{{ toWealth }}" style="display:flex; flex-direction:column; align-items:center; gap:5px; cursor:pointer; color:{{ wealthColor }};">
+            <svg viewBox="0 0 24 24" style="width:21px; height:21px; display:block;"><path d="M4 19 V5 M4 19 H20 M7.5 15.5 L11 11 L14 13.5 L19 7" fill="none" stroke="{{ wealthColor }}" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:10px; letter-spacing:.02em;">Wealth</span>
+          </span>
+          
+          <span onClick="{{ toDiscover }}" style="display:flex; flex-direction:column; align-items:center; gap:5px; cursor:pointer; color:{{ discoverColor }};">
+            <svg viewBox="0 0 24 24" style="width:21px; height:21px; display:block;"><path d="M12 3.5 A8.5 8.5 0 1 0 12 20.5 A8.5 8.5 0 1 0 12 3.5 M15 9 L13 13 L9 15 L11 11 Z" fill="none" stroke="{{ discoverColor }}" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:10px; letter-spacing:.02em;">Discover</span>
+          </span>
+          
+          <span onClick="{{ toCircle }}" style="display:flex; flex-direction:column; align-items:center; gap:5px; cursor:pointer; color:{{ circleColor }};">
+            <svg viewBox="0 0 24 24" style="width:21px; height:21px; display:block;"><path d="M9 11 A3 3 0 1 0 9 5 A3 3 0 1 0 9 11 M16 11.5 A2.5 2.5 0 1 0 16 6.5 A2.5 2.5 0 1 0 16 11.5 M3.5 19 C3.5 15.7 6 13.5 9 13.5 C12 13.5 14.5 15.7 14.5 19 M16.5 13.8 C18.9 14.3 20.5 16.3 20.5 19" fill="none" stroke="{{ circleColor }}" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:10px; letter-spacing:.02em;">Circle</span>
+          </span>
+          
+          <span onClick="{{ toLearn }}" style="display:flex; flex-direction:column; align-items:center; gap:5px; cursor:pointer; color:{{ learnColor }};">
+            <svg viewBox="0 0 24 24" style="width:21px; height:21px; display:block;"><path d="M4 5.5 C7 4.5 9.5 4.8 12 6.2 C14.5 4.8 17 4.5 20 5.5 V18 C17 17 14.5 17.3 12 18.7 C9.5 17.3 7 17 4 18 Z M12 6.2 V18.7" fill="none" stroke="{{ learnColor }}" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:10px; letter-spacing:.02em;">Learn</span>
+          </span>
+        </div>
+      </sc-if>
+      <sc-if value="{{ showAsk }}" hint-placeholder-val="{{ false }}">
+        <div onClick="{{ openChat }}" style="position:absolute; right:18px; bottom:96px; z-index:15; width:52px; height:52px; border-radius:50%; background:#FA5B35; display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 10px 24px -8px rgba(250,91,53,.7), 0 2px 6px rgba(0,0,0,.12);" style-hover="transform:scale(1.05)">
+          <svg viewBox="0 0 24 24" style="width:24px; height:24px;"><path d="M12 3 C12.6 8.2 15.8 11.4 21 12 C15.8 12.6 12.6 15.8 12 21 C11.4 15.8 8.2 12.6 3 12 C8.2 11.4 11.4 8.2 12 3 Z" fill="#fff"></path><path d="M19 3 C19.2 4.6 19.9 5.3 21.5 5.5 C19.9 5.7 19.2 6.4 19 8 C18.8 6.4 18.1 5.7 16.5 5.5 C18.1 5.3 18.8 4.6 19 3 Z" fill="#fff"></path></svg>
+        </div>
+      </sc-if>
+      <sc-if value="{{ chatOpen }}" hint-placeholder-val="{{ false }}">
+        <div style="position:absolute; inset:0; z-index:25; display:flex; flex-direction:column; justify-content:flex-end;">
+          <div onClick="{{ closeChat }}" style="position:absolute; inset:0; background:rgba(22,19,15,.38);"></div>
+          <div style="position:relative; background:#fff; border-radius:28px 28px 0 0; max-height:82%; display:flex; flex-direction:column; box-shadow:0 -20px 50px -20px rgba(0,0,0,.35);">
+            <div style="display:flex; justify-content:center; padding-top:10px;"><span style="width:38px; height:4px; border-radius:100px; background:rgba(0,0,0,.14);"></span></div>
+            <div style="display:flex; align-items:center; gap:12px; padding:14px 22px 14px;">
+              <span style="width:34px; height:34px; border-radius:50%; background:#FA5B35; flex:none; display:flex; align-items:center; justify-content:center;"><svg viewBox="0 0 24 24" style="width:17px; height:17px;"><path d="M12 3 C12.6 8.2 15.8 11.4 21 12 C15.8 12.6 12.6 15.8 12 21 C11.4 15.8 8.2 12.6 3 12 C8.2 11.4 11.4 8.2 12 3 Z" fill="#fff"></path></svg></span>
+              <span style="flex:1; display:flex; flex-direction:column; gap:2px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:16px;">Ask Alba</span><span style="font-size:12px; color:#8a827a;">{{ chatContext }}</span></span>
+              <span onClick="{{ closeChat }}" style="width:34px; height:34px; border-radius:50%; border:1px solid rgba(0,0,0,.14); display:flex; align-items:center; justify-content:center; cursor:pointer;"><svg viewBox="0 0 14 14" style="width:12px; height:12px;"><path d="M2 2 L12 12 M12 2 L2 12" stroke="#16130f" stroke-width="1.5" stroke-linecap="round"></path></svg></span>
+            </div>
+            <div ref="{{ chatScrollRef }}" style="flex:1; overflow-y:auto; padding:4px 22px 12px; display:flex; flex-direction:column; gap:10px; min-height:120px;">
+              <sc-if value="{{ chatEmpty }}" hint-placeholder-val="{{ true }}">
+                <div style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:9.5px; letter-spacing:.18em; color:#8a827a; padding-top:4px;">SUGGESTED FOR THIS PAGE</div>
+                <sc-for list="{{ chatSuggestions }}" as="q" hint-placeholder-count="3">
+                  <div onClick="{{ q.ask }}" style="display:flex; align-items:center; gap:12px; padding:14px 16px; border-radius:18px; border:1px solid rgba(0,0,0,.14); cursor:pointer;" style-hover="border-color:#FA5B35">
+                    <span style="flex:1; font-size:14.5px; line-height:1.35;">{{ q.text }}</span>
+                    <svg viewBox="0 0 14 14" style="width:12px; height:12px; flex:none;"><path d="M3 7 H11 M7.5 3.5 L11 7 L7.5 10.5" fill="none" stroke="#FA5B35" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                  </div>
+                </sc-for>
+              </sc-if>
+              <sc-for list="{{ chatMessages }}" as="m" hint-placeholder-count="0">
+                <sc-if value="{{ m.isUser }}" hint-placeholder-val="{{ false }}">
+                  <div style="align-self:flex-end; max-width:82%; background:#16130f; color:#fff; border-radius:18px 18px 4px 18px; padding:11px 14px; font-size:14px; line-height:1.45;">{{ m.text }}</div>
+                </sc-if>
+                <sc-if value="{{ m.isBot }}" hint-placeholder-val="{{ false }}">
+                  <div style="align-self:flex-start; max-width:88%; background:#f4f2ef; border-radius:18px 18px 18px 4px; padding:11px 14px; font-size:14px; line-height:1.5; white-space:pre-wrap; text-wrap:pretty;">{{ m.text }}</div>
+                </sc-if>
+              </sc-for>
+              <sc-if value="{{ chatLoading }}" hint-placeholder-val="{{ false }}">
+                <div style="align-self:flex-start; background:#f4f2ef; border-radius:18px 18px 18px 4px; padding:11px 14px; font-size:14px; color:#8a827a;">Thinking…</div>
+              </sc-if>
+            </div>
+            <div style="padding:10px 18px 26px; border-top:1px solid rgba(0,0,0,.08); display:flex; flex-direction:column; gap:8px;">
+              <div style="display:flex; align-items:center; gap:8px; padding:6px 6px 6px 16px; border-radius:100px; border:1px solid rgba(0,0,0,.18);">
+                <input value="{{ chatInput }}" onChange="{{ onChatInput }}" onKeyDown="{{ onChatKey }}" placeholder="Ask anything about your money" style="flex:1; border:none; outline:none; background:transparent; font-family:'Swissquote CT',Helvetica,sans-serif; font-size:14px; color:#16130f; min-width:0;">
+                <span onClick="{{ sendChat }}" style="width:34px; height:34px; border-radius:50%; background:#FA5B35; flex:none; display:flex; align-items:center; justify-content:center; cursor:pointer;"><svg viewBox="0 0 14 14" style="width:13px; height:13px;"><path d="M7 11.5 V2.5 M3 6.5 L7 2.5 L11 6.5" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+              </div>
+              <div style="font-size:11px; color:#a39b93; text-align:center;">Alba explains, it doesn’t give personal advice.</div>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ atLater }}" hint-placeholder-val="{{ false }}">
+        <div style="position:absolute; inset:0; z-index:20; background:rgba(22,19,15,.42); display:flex; align-items:center; justify-content:center; padding:22px;">
+          <div style="width:100%; background:#fff; border-radius:26px; padding:26px 24px 22px; display:flex; flex-direction:column; gap:22px; box-shadow:0 30px 60px -20px rgba(0,0,0,.4);">
+            <div style="display:flex; flex-direction:column; gap:10px;">
+              <div style="font-family:'Swissquote CT',Helvetica,sans-serif; font-size:9.5px; letter-spacing:.18em; color:#8a827a;">PROTOTYPE · TIME JUMP</div>
+              <div style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:28px; line-height:1.15;">Two years later.</div>
+              <div style="font-size:14px; line-height:1.5; color:#5f574f; text-wrap:pretty;">What follows is Alba in September 2026. You kept CHF 200 a month going, found your circle and learned along the way.</div>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:10px;">
+              <div style="position:relative; height:14px;">
+                <span style="position:absolute; left:6px; right:6px; top:6px; height:2px; background:linear-gradient(90deg,#16130f,#FA5B35);"></span>
+                <span style="position:absolute; left:0; top:1px; width:12px; height:12px; border-radius:50%; background:#16130f;"></span>
+                <span style="position:absolute; right:0; top:0; width:14px; height:14px; border-radius:50%; background:#FA5B35;"></span>
+              </div>
+              <div style="display:flex; justify-content:space-between; gap:12px;">
+                <span style="display:flex; flex-direction:column; gap:3px;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:14px;">Sep 2024</span><span style="font-size:12.5px; color:#8a827a;">Your first payment</span></span>
+                <span style="display:flex; flex-direction:column; gap:3px; align-items:flex-end; text-align:right;"><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:14px;">Sep 2026</span><span style="font-size:12.5px; color:#8a827a;">Today</span></span>
+              </div>
+            </div>
+            <div style="display:flex; flex-direction:column; border-top:1px solid rgba(0,0,0,.12);">
+              <div style="display:flex; justify-content:space-between; align-items:baseline; padding:12px 0; border-bottom:1px solid rgba(0,0,0,.12);"><span style="font-size:13.5px;">Payments made</span><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:16px;">24</span></div>
+              <div style="display:flex; justify-content:space-between; align-items:baseline; padding:12px 0; border-bottom:1px solid rgba(0,0,0,.12);"><span style="font-size:13.5px;">Paid in</span><span style="font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:16px;">CHF 4’800</span></div>
+            </div>
+            <div onClick="{{ toHome }}" style="background:#16130f; color:#fff; border-radius:100px; padding:16px 0; text-align:center; font-size:15px; cursor:pointer;" style-hover="opacity:.85">See Alba today</div>
+          </div>
+        </div>
+      </sc-if>
+
+    </div>
+
+    <sc-if value="{{ showChrome }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex; align-items:center; gap:14px; font-size:12px; color:#6b635c;">
+        <span onClick="{{ toSplash }}" style="cursor:pointer; border-bottom:1px solid rgba(0,0,0,.25); padding-bottom:1px;">Restart</span>
+        <span>{{ stepLabel }}</span>
+      </div>
+    </sc-if>
+</div>
+
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:980},&quot;firstName&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Camille&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;screen&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;&quot;,&quot;splash&quot;,&quot;intro&quot;,&quot;start&quot;,&quot;pace&quot;,&quot;themes&quot;,&quot;rhythm&quot;,&quot;payment&quot;,&quot;later&quot;,&quot;home&quot;,&quot;wealth&quot;,&quot;discover&quot;,&quot;circle&quot;,&quot;learn&quot;],&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+const ACCENT_DEEP = '#FA5B35';
+const CALM_BG = '#EEF1F4', STEADY_BG = 'rgba(250,91,53,.45)', BOLD_BG = '#F6E3DC';
+const CATS = [
+  { id: 'all', label: 'Picked for you' },
+  { id: 'industry', label: 'Industry' },
+  { id: 'tech', label: 'Technology' },
+  { id: 'life', label: 'Lifestyle' },
+  { id: 'impact', label: 'Sustainability & Impact' },
+  { id: 'econ', label: 'Economy & Politics' },
+  { id: 'alt', label: 'Alternative & Crypto' }
+];
+const PICKED = [
+  { name: 'Climate Transition', note: 'You already hold this', change: '+0.9%', risk: 'Steady', mark: '#DFEEE4' },
+  { name: 'Women in Leadership', note: 'You already hold this', change: '+1.4%', risk: 'Steady', mark: '#EDE6F2' },
+  { name: 'Education & skills', note: 'Marta and 3 others in your circle hold it', change: '+0.5%', risk: 'Steady', mark: '#F2EBDC' },
+  { name: 'Clean water', note: 'Close to what you already back', change: '−0.6%', risk: 'Calm', mark: '#E4EEF2' }
+];
+
+const ETF_CATS = [
+  { id: 'world', label: 'Whole world' },
+  { id: 'regions', label: 'Regions' },
+  { id: 'sectors', label: 'Sectors' },
+  { id: 'bonds', label: 'Bonds & safety' },
+  { id: 'dividends', label: 'Dividends' },
+  { id: 'green', label: 'Sustainable' }
+];
+const ETF_DATA = {
+  world: [
+    { name: 'World fund', note: '11’200 members · fee 0.12%', change: '+1.8%', risk: 'Calm', mark: '#E4E7F2' },
+    { name: 'World small companies', note: '1’430 members · fee 0.19%', change: '+2.4%', risk: 'Steady', mark: '#E7EFF2' },
+    { name: 'World, Swiss franc hedged', note: '2’060 members · fee 0.15%', change: '+1.1%', risk: 'Calm', mark: '#EEF1F4' },
+    { name: 'All-country including emerging', note: '980 members · fee 0.20%', change: '+0.7%', risk: 'Steady', mark: '#EAE7F2' }
+  ],
+  regions: [
+    { name: 'Swiss market', note: '6’400 members · fee 0.10%', change: '−0.4%', risk: 'Calm', mark: '#F2E7E7' },
+    { name: 'Europe', note: '2’150 members · fee 0.12%', change: '+0.9%', risk: 'Steady', mark: '#E4EEF2' },
+    { name: 'United States', note: '5’310 members · fee 0.07%', change: '+2.2%', risk: 'Steady', mark: '#EEF1F4' },
+    { name: 'Japan', note: '640 members · fee 0.15%', change: '+1.6%', risk: 'Steady', mark: '#F2E7EC' },
+    { name: 'Emerging markets', note: '1’140 members · fee 0.18%', change: '−1.9%', risk: 'Bold', mark: '#E7EFF2' }
+  ],
+  sectors: [
+    { name: 'Healthcare', note: '1’870 members · fee 0.18%', change: '+1.4%', risk: 'Steady', mark: '#DFEEE4' },
+    { name: 'Technology', note: '3’940 members · fee 0.20%', change: '+4.0%', risk: 'Bold', mark: '#EAE7F2' },
+    { name: 'Infrastructure', note: '720 members · fee 0.23%', change: '+0.6%', risk: 'Steady', mark: '#F0EDE7' },
+    { name: 'Property', note: '1’060 members · fee 0.24%', change: '−0.8%', risk: 'Steady', mark: '#F2EBDC' }
+  ],
+  bonds: [
+    { name: 'Swiss government bonds', note: '2’480 members · fee 0.09%', change: '+0.2%', risk: 'Calm', mark: '#EEF1F4' },
+    { name: 'Global bonds, hedged', note: '1’920 members · fee 0.11%', change: '+0.4%', risk: 'Calm', mark: '#E4EEF2' },
+    { name: 'Short-term bonds', note: '1’310 members · fee 0.10%', change: '+0.3%', risk: 'Calm', mark: '#F0EDE7' },
+    { name: 'Inflation-linked bonds', note: '540 members · fee 0.16%', change: '−0.1%', risk: 'Calm', mark: '#F2EBDC' }
+  ],
+  dividends: [
+    { name: 'Swiss dividend payers', note: '3’200 members · fee 0.15%', change: '+2.6%', risk: 'Calm', mark: '#F2E7E7' },
+    { name: 'Global high dividends', note: '1’780 members · fee 0.29%', change: '−0.4%', risk: 'Steady', mark: '#EEF1F4' },
+    { name: 'Dividend growers', note: '860 members · fee 0.25%', change: '+1.2%', risk: 'Steady', mark: '#E4E7F2' }
+  ],
+  green: [
+    { name: 'World, climate-screened', note: '2’640 members · fee 0.18%', change: '+1.5%', risk: 'Calm', mark: '#DFEEE4' },
+    { name: 'Clean energy', note: '1’210 members · fee 0.30%', change: '−1.1%', risk: 'Bold', mark: '#EDF2E4' },
+    { name: 'Green bonds', note: '470 members · fee 0.20%', change: '+0.3%', risk: 'Calm', mark: '#E4EEF2' },
+    { name: 'Water', note: '620 members · fee 0.35%', change: '−0.6%', risk: 'Steady', mark: '#E4EEF2' }
+  ]
+};
+const THEME_DATA = {
+  industry: [
+    { name: 'Semiconductors', note: '2’980 members hold this', change: '+3.5%', risk: 'Bold', mark: '#E7EFF2' },
+    { name: 'Pharma & biotech', note: '1’740 members hold this', change: '+2.8%', risk: 'Steady', mark: '#F2E7E7' },
+    { name: 'Swiss blue chips', note: '5’900 members hold this', change: '−0.4%', risk: 'Steady', mark: '#F0EDE7' },
+    { name: 'Gold & materials', note: '860 members hold this', change: '+1.2%', risk: 'Steady', mark: '#F2EBDC' }
+  ],
+  tech: [
+    { name: 'AI & infrastructure', note: '4’480 members hold this', change: '+4.1%', risk: 'Bold', mark: '#EAE7F2' },
+    { name: 'Robotics', note: '1’120 members hold this', change: '+1.3%', risk: 'Bold', mark: '#E4E7F2' },
+    { name: 'Cybersecurity', note: '940 members hold this', change: '+2.2%', risk: 'Steady', mark: '#E7EFF2' }
+  ],
+  life: [
+    { name: 'Health & ageing well', note: '2’240 members hold this', change: '+0.6%', risk: 'Calm', mark: '#DFEEE4' },
+    { name: 'Food & wellbeing', note: '760 members hold this', change: '−1.1%', risk: 'Steady', mark: '#EDF2E4' },
+    { name: 'Global luxury', note: '1’380 members hold this', change: '−5.5%', risk: 'Bold', mark: '#F2E7EC' }
+  ],
+  impact: [
+    { name: 'Climate Transition', note: '4’120 members · Sophie is in', change: '+0.9%', risk: 'Steady', mark: '#DFEEE4' },
+    { name: 'Women in Leadership', note: '3’540 members hold this', change: '+1.4%', risk: 'Steady', mark: '#EDE6F2' },
+    { name: 'Education & skills', note: '1’860 members hold this', change: '+0.5%', risk: 'Steady', mark: '#F2EBDC' },
+    { name: 'Clean water', note: '620 members hold this', change: '−0.6%', risk: 'Calm', mark: '#E4EEF2' }
+  ],
+  econ: [
+    { name: 'Dividend payers', note: '3’200 members hold this', change: '+2.6%', risk: 'Calm', mark: '#EEF1F4' },
+    { name: 'Swiss economy', note: '2’410 members hold this', change: '+0.3%', risk: 'Calm', mark: '#F2E7E7' },
+    { name: 'Emerging markets', note: '1’140 members hold this', change: '−1.9%', risk: 'Bold', mark: '#E7EFF2' }
+  ],
+  alt: [
+    { name: 'Crypto basket', note: '890 members hold this', change: '+14.9%', risk: 'Bold', mark: '#F0EAE2' },
+    { name: 'Blockchain companies', note: '540 members hold this', change: '+11.3%', risk: 'Bold', mark: '#EAE7F2' }
+  ]
+};
+
+const TINT_SOFT = 'linear-gradient(180deg,#FFF1ED,#FEE6DF)';
+const CHAPTERS = [
+  { id: 'basics', n: 1, title: 'Chapter 1, Getting started', meta: '4 videos, done', state: 'done',
+    videos: [
+      { title: 'Why invest at all', dur: '3 min', state: 'done' },
+      { title: 'How much is enough to start', dur: '4 min', state: 'done' },
+      { title: 'Risk in plain words', dur: '5 min', state: 'done' },
+      { title: 'What Alba actually does with your money', dur: '3 min', state: 'done' }
+    ] },
+  { id: 'etf', n: 2, title: 'Chapter 2, ETFs', meta: '4 videos, not started', state: 'current',
+    videos: [
+      { title: 'What is an ETF?', dur: '4 min', state: 'current' },
+      { title: 'What is inside a world ETF', dur: '5 min', state: 'todo' },
+      { title: 'Fees, why 0.12% matters over ten years', dur: '4 min', state: 'todo' },
+      { title: 'Choosing your first ETF', dur: '6 min', state: 'todo' }
+    ] },
+  { id: 'themes', n: 3, title: 'Chapter 3, Themes and shares', meta: '3 videos', state: 'todo',
+    videos: [
+      { title: 'What a theme really holds', dur: '4 min', state: 'todo' },
+      { title: 'One company versus a basket', dur: '5 min', state: 'todo' },
+      { title: 'How much to put in a theme', dur: '3 min', state: 'todo' }
+    ] },
+  { id: 'pension', n: 4, title: 'Chapter 4, Pension 3a and taxes', meta: '4 videos', state: 'todo',
+    videos: [
+      { title: 'What 3a is, in two minutes', dur: '2 min', state: 'todo' },
+      { title: 'What you save in tax each year', dur: '4 min', state: 'todo' },
+      { title: 'Invested 3a versus a 3a savings account', dur: '5 min', state: 'todo' },
+      { title: 'When you can take it out', dur: '3 min', state: 'todo' }
+    ] },
+  { id: 'falls', n: 5, title: 'Chapter 5, When markets fall', meta: '3 videos', state: 'todo',
+    videos: [
+      { title: 'Why prices go up and down', dur: '4 min', state: 'todo' },
+      { title: 'What people here did in 2022', dur: '5 min', state: 'todo' },
+      { title: 'Doing nothing is a decision', dur: '3 min', state: 'todo' }
+    ] },
+  { id: 'mix', n: 6, title: 'Chapter 6, Building your own mix', meta: '3 videos', state: 'todo',
+    videos: [
+      { title: 'Base, themes and cash', dur: '4 min', state: 'todo' },
+      { title: 'Rebalancing without fuss', dur: '4 min', state: 'todo' },
+      { title: 'Raising your monthly amount', dur: '3 min', state: 'todo' }
+    ] }
+];
+const FLOW = ['splash', 'intro', 'start', 'pace', 'themes', 'rhythm', 'payment'];
+const TABS = ['home', 'wealth', 'discover', 'circle', 'learn'];
+const ASK = {
+  home: { ctx: 'About your Home page', q: ['Is CHF 200 a month enough?', 'What does the CHF 29’300 projection assume?', 'Is the Zürich meet-up for beginners?'], info: 'Home: balance CHF 5’260, +CHF 310 this year, CHF 4’800 paid in since Sep 2024 at CHF 200/month. Projection to 2034: about CHF 29’300. Next payment 1 Oct, CHF 200. Meet-up "Coffee & first investments", Zürich, 24 Sep 18:30. Amina asked "Is 200 too little?".' },
+  wealth: { ctx: 'About your Wealth page', q: ['Why is Women in Leadership down?', 'What should I do with my CHF 300 cash?', 'How much can I still put in my 3a?'], info: 'Wealth CHF 5’260: ETFs CHF 2’880 (World fund 2’050 +140, Swiss fund 830 +20), Themes CHF 1’180 (Climate Transition 710 +70, Women in Leadership 470 −10), Pension 3a CHF 900 (+30, CHF 6’400 left to save tax-free this year), Cash CHF 300 not invested.' },
+  discover: { ctx: 'About Discover', q: ['Which funds fit a Steady pace?', 'ETF or theme, what’s the difference?', 'Why do fees matter so much?'], info: 'Discover lists ETFs (world, regions, sectors, bonds, dividends, green) and themes, each with fee, members holding it, recent change and a risk label Calm, Steady or Bold. The user chose a Steady pace and Climate + Education themes.' },
+  circle: { ctx: 'About your Circle', q: ['Help me reply to Amina: is 200 too little?', 'What’s the circle talking about this week?', 'How do I ask my first question?'], info: 'Circle: events (meet-up Zürich, 3a webinar), people to follow showing only percentages, posts: Amina "Markets dipped and I did nothing", Sophie "Two years today, CHF 4’800 in", Daniel "Asked my first question last month".' },
+  learn: { ctx: 'About Learn', q: ['Where should I pick up?', 'Explain ETFs in one minute', 'Quiz me on what I’ve watched'], info: 'Learn: short videos in chapters. Current: "What is an ETF?" (4 min). Next: what is inside a world ETF, fees over ten years, choosing your first ETF. Also a 3a chapter.' }
+};
+const LABELS = {
+  splash: 'Splash', intro: 'Welcome', start: 'Start', themes: 'Themes', pace: 'Pace', rhythm: 'Rhythm & amount',
+  payment: 'First payment', later: 'Two years later', home: 'Home', wealth: 'Wealth', discover: 'Discover', circle: 'Circle', learn: 'Learn'
+};
+
+class Component extends DCLogic {
+  state = { chatOpen: false, chatMessages: [], chatInput: '', chatLoading: false, screen: this.props.screen || 'splash', filter: 'forYou', themeCat: 'all', etfCat: 'world', openChapter: 'etf' };
+
+  componentDidMount() {
+    if (this.props.screen) return;
+    try {
+      const saved = localStorage.getItem('tessera-proto-screen');
+      if (saved && LABELS[saved]) this.setState({ screen: saved });
+    } catch (e) {}
+  }
+
+  chatScrollRef = React.createRef();
+  componentDidUpdate() { const el = this.chatScrollRef.current; if (el) el.scrollTop = el.scrollHeight; }
+  async ask(text) {
+    const t = (text || '').trim();
+    if (!t || this.state.chatLoading) return;
+    const a = ASK[this.state.screen] || ASK.home;
+    const history = this.state.chatMessages.concat([{ role: 'user', text: t }]);
+    this.setState({ chatMessages: history, chatInput: '', chatLoading: true });
+    let reply;
+    try {
+      reply = await window.claude.complete({
+        system: 'You are Alba, the in-app guide of Alba by Swissquote, a calm investing app for beginners in Switzerland (mostly women, not only). The user is ' + (this.props.firstName ?? 'Camille') + ', investing CHF 200 a month since September 2024; today is September 2026. Page context: ' + a.info + ' Answer in plain, warm words, max 70 words, amounts in CHF with Swiss apostrophes. Explain, never give personal buy or sell advice or promise returns. Never use the em dash character. No markdown.',
+        messages: history.map(m => ({ role: m.role, content: m.text })),
+        max_tokens: 300
+      });
+    } catch (e) { reply = 'I can’t answer right now. Try again in a moment.'; }
+    this.setState(s => ({ chatMessages: s.chatMessages.concat([{ role: 'assistant', text: String(reply).replace(/\u2014/g, ',') }]), chatLoading: false }));
+  }
+
+  go(screen) {
+    this.setState({ chatOpen: false, chatMessages: [], chatInput: '' });
+    try { localStorage.setItem('tessera-proto-screen', screen); } catch (e) {}
+    this.setState({ screen });
+  }
+
+  chipStyle(id) {
+    const on = this.state.filter === id;
+    return "font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:13px; padding:12px 16px; border-radius:100px; white-space:nowrap; cursor:pointer; " +
+      (on ? 'background:#16130f; color:#fff;' : 'border:1px solid rgba(0,0,0,.18); color:#5f574f;');
+  }
+
+  renderVals() {
+    const s = this.state.screen;
+    const f = this.state.filter;
+    const pick = id => () => this.setState({ filter: id });
+    const tabColor = t => ((s === 'later' ? 'home' : s) === t ? '#FA5B35' : '#7a736b');
+    const idx = FLOW.indexOf(s);
+    return {
+      firstName: this.props.firstName ?? 'Camille',
+      atSplash: s === 'splash',
+      atIntro: s === 'intro',
+      atStart: s === 'start',
+      atThemes: s === 'themes',
+      atPace: s === 'pace',
+      atRhythm: s === 'rhythm',
+      atPayment: s === 'payment',
+      atLater: s === 'later',
+      atHome: s === 'home' || s === 'later',
+      showAsk: TABS.includes(s) && !this.state.chatOpen,
+      chatOpen: this.state.chatOpen,
+      openChat: () => this.setState({ chatOpen: true }),
+      closeChat: () => this.setState({ chatOpen: false }),
+      chatContext: (ASK[s] || ASK.home).ctx,
+      chatSuggestions: (ASK[s] || ASK.home).q.map(text => ({ text, ask: () => this.ask(text) })),
+      chatEmpty: this.state.chatMessages.length === 0,
+      chatMessages: this.state.chatMessages.map(m => ({ text: m.text, isUser: m.role === 'user', isBot: m.role !== 'user' })),
+      chatLoading: this.state.chatLoading,
+      chatInput: this.state.chatInput,
+      chatScrollRef: this.chatScrollRef,
+      onChatInput: e => this.setState({ chatInput: e.target.value }),
+      onChatKey: e => { if (e.key === 'Enter') this.ask(this.state.chatInput); },
+      sendChat: () => this.ask(this.state.chatInput),
+      atWealth: s === 'wealth',
+      atDiscover: s === 'discover',
+      atCircle: s === 'circle',
+      atLearn: s === 'learn',
+      showTabs: TABS.includes(s) || s === 'later',
+      homeColor: tabColor('home'),
+      wealthColor: tabColor('wealth'),
+      discoverColor: tabColor('discover'),
+      circleColor: tabColor('circle'),
+      learnColor: tabColor('learn'),
+      stepLabel: idx >= 0 ? 'Onboarding · ' + LABELS[s] : 'App · ' + LABELS[s],
+      showChrome: !this.props.embedded,
+      pageStyle: this.props.embedded
+        ? "font-family:'Swissquote CT',Helvetica,sans-serif;"
+        : "min-height:100vh; display:flex; align-items:center; justify-content:center; padding:40px 20px; font-family:'Swissquote CT',Helvetica,sans-serif;",
+      toSplash: () => this.go('splash'),
+      toIntro: () => this.go('intro'),
+      toStart: () => this.go('start'),
+      toThemes: () => this.go('themes'),
+      toPace: () => this.go('pace'),
+      toRhythm: () => this.go('rhythm'),
+      toPayment: () => this.go('payment'),
+      toHome: () => this.go('home'),
+      toLater: () => this.go('later'),
+      toWealth: () => this.go('wealth'),
+      chapters: CHAPTERS.map(c => {
+        const open = this.state.openChapter === c.id;
+        const done = c.state === 'done', current = c.state === 'current';
+        return {
+          id: c.id,
+          title: c.title,
+          meta: c.meta,
+          open: open,
+          caret: open ? '▲' : '▼',
+          bg: done ? TINT_SOFT : '#fff',
+          border: current ? '1.5px solid #16130f' : (done ? '1px solid rgba(0,0,0,0)' : '1px solid rgba(0,0,0,.12)'),
+          badge: done ? '✓' : String(c.n),
+          badgeBg: done ? '#16130f' : (current ? 'transparent' : 'rgba(22,19,15,.06)'),
+          badgeColor: done ? '#fff' : (current ? '#16130f' : '#8a827a'),
+          badgeBorder: current ? '1.5px solid #16130f' : '1px solid rgba(0,0,0,0)',
+          toggle: () => this.setState({ openChapter: open ? null : c.id }),
+          videos: c.videos.map(v => ({
+            title: v.title,
+            dur: v.dur,
+            dot: v.state === 'done' ? '✓' : (v.state === 'current' ? '▶' : ''),
+            dotBg: v.state === 'done' ? 'rgba(22,19,15,.08)' : (v.state === 'current' ? '#16130f' : 'rgba(22,19,15,.05)'),
+            dotColor: v.state === 'current' ? '#fff' : '#8a827a',
+            titleColor: v.state === 'todo' ? '#5f574f' : '#16130f'
+          }))
+        };
+      }),
+      etfCats: ETF_CATS.map(c => ({
+        id: c.id,
+        label: c.label,
+        pick: () => this.setState({ etfCat: c.id }),
+        style: "font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:12.5px; padding:9px 14px; border-radius:100px; white-space:nowrap; cursor:pointer; " +
+          (this.state.etfCat === c.id ? 'background:rgba(22,19,15,.08); color:#16130f;' : 'color:#8a827a;')
+      })),
+      etfList: (ETF_DATA[this.state.etfCat] || []).map((t, i) => Object.assign({}, t, {
+        rule: i === 0 ? 'none' : '1px solid rgba(0,0,0,.12)',
+        changeColor: t.change.charAt(0) === '−' ? '#8a827a' : '#1E8A5E',
+        riskBg: t.risk === 'Calm' ? CALM_BG : (t.risk === 'Bold' ? BOLD_BG : STEADY_BG)
+      })),
+      cats: CATS.map(c => ({
+        id: c.id,
+        label: c.label,
+        pick: () => this.setState({ themeCat: c.id }),
+        style: "font-family:'Swissquote CT',Helvetica,sans-serif; font-weight:500; font-size:12.5px; padding:9px 14px; border-radius:100px; white-space:nowrap; cursor:pointer; " +
+          (this.state.themeCat === c.id ? 'background:rgba(22,19,15,.08); color:#16130f;' : 'color:#8a827a;')
+      })),
+      themeList: (this.state.themeCat === 'all'
+        ? PICKED
+        : THEME_DATA[this.state.themeCat] || []
+      ).map((t, i) => Object.assign({}, t, {
+        rule: i === 0 ? 'none' : '1px solid rgba(0,0,0,.12)',
+        changeColor: t.change.charAt(0) === '−' ? '#8a827a' : '#1E8A5E',
+        riskBg: t.risk === 'Calm' ? CALM_BG : (t.risk === 'Bold' ? BOLD_BG : STEADY_BG)
+      })),
+      showFeatured: f === 'forYou',
+      showThemes: f === 'forYou' || f === 'themes',
+      showFunds: f === 'forYou' || f === 'etfs',
+      showShares: f === 'forYou' || f === 'shares',
+      showPension: f === 'forYou' || f === 'pension',
+      showCalm: f === 'low',
+      chipForYou: this.chipStyle('forYou'),
+      chipThemes: this.chipStyle('themes'),
+      chipEtfs: this.chipStyle('etfs'),
+      chipShares: this.chipStyle('shares'),
+      chipPension: this.chipStyle('pension'),
+      chipLow: this.chipStyle('low'),
+      pickForYou: pick('forYou'),
+      pickThemes: pick('themes'),
+      pickEtfs: pick('etfs'),
+      pickShares: pick('shares'),
+      pickPension: pick('pension'),
+      pickLow: pick('low'),
+      toDiscover: () => this.go('discover'),
+      toCircle: () => this.go('circle'),
+      toLearn: () => this.go('learn')
+    };
+  }
+}
+
+</script>
+</body>
+</html>
