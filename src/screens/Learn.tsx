@@ -293,6 +293,8 @@ export function Learn() {
   const { openChat } = useChat();
   const [story, setStory] = useState<{ chapter: string; index: number } | null>(null);
   const [course, setCourse] = useState(false);
+  // Posters that failed to load fall back to the pastel card style.
+  const [broken, setBroken] = useState<string[]>([]);
   const row = useRef<HTMLDivElement>(null);
   const watched = new Set(s.watched);
   const progress = learnProgress(s);
@@ -345,7 +347,7 @@ export function Learn() {
           <div ref={row} className="chiprow" style={{ gap: 10, minHeight: 236, alignItems: 'stretch', paddingTop: 4, paddingBottom: 4 }}>
             {chapter.videos.map((v, i) => {
               const isDone = watched.has(v.id), isCur = v.id === current.id && !isDone;
-              const photo = !!v.youtube;
+              const photo = !!v.youtube && !broken.includes(v.id);
               return (
                 <motion.button
                   key={v.id}
@@ -361,7 +363,7 @@ export function Learn() {
                 >
                   {photo && (
                     <>
-                      <img src={poster(v)} onError={e => { e.currentTarget.style.display = 'none'; }} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+                      <img src={poster(v)} onError={() => setBroken(b => [...b, v.id])} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
                       <span style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,.75))' }} />
                     </>
                   )}
@@ -372,7 +374,7 @@ export function Learn() {
                   {isCur && (
                     <span className="m" style={{ position: 'absolute', right: 8, top: 8, fontSize: 10, letterSpacing: '.08em', background: 'var(--accent)', color: '#fff', borderRadius: 100, padding: '3px 8px' }}>UP NEXT</span>
                   )}
-                  {photo && !isDone && (
+                  {v.youtube && !isDone && (
                     <span style={{ position: 'absolute', left: '50%', top: '42%', transform: 'translate(-50%,-50%)', width: 38, height: 38, borderRadius: '50%', background: 'rgba(255,255,255,.92)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><PlayIcon size={15} /></span>
                   )}
                   <span style={{ position: 'absolute', left: 11, right: 11, bottom: 11, display: 'flex', flexDirection: 'column', gap: 4, color: photo ? '#fff' : 'var(--ink)' }}>
