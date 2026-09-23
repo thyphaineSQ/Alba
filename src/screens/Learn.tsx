@@ -1,7 +1,7 @@
 import { animate, AnimatePresence, motion, useMotionValue, useTransform, type AnimationPlaybackControls } from 'motion/react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { ALL_VIDEOS, CHAPTERS, img, type Chapter } from '../data';
+import { ALL_VIDEOS, CHAPTERS, poster, type Chapter } from '../data';
 import { useChat } from '../chat';
 import { learnProgress, useApp } from '../store';
 import { Logo, Mark, Rise, Sheet, SheetHeader, ease } from '../ui';
@@ -152,7 +152,7 @@ function StoryViewer({ chapter, start, onClose }: { chapter: Chapter; start: num
                   />
                 ) : (
                   <>
-                    <img src={img('lesson-still')} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+                    <img src={poster(v)} onError={e => { e.currentTarget.style.display = 'none'; }} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
                     <span style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(0,0,0,.72))' }} />
                     <span style={{ position: 'absolute', left: 20, right: 20, bottom: 22, display: 'flex', flexDirection: 'column', gap: 8, zIndex: 2, pointerEvents: 'none' }}>
                       <span className="m" style={{ fontSize: 26, lineHeight: 1.15 }}>{v.title}</span>
@@ -353,7 +353,7 @@ export function Learn() {
                 >
                   {photo && (
                     <>
-                      <img src={img('lesson-still')} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+                      <img src={poster(v)} onError={e => { e.currentTarget.style.display = 'none'; }} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
                       <span style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,.75))' }} />
                     </>
                   )}

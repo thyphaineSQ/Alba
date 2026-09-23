@@ -283,10 +283,10 @@ export const CHAPTERS: Chapter[] = [
     V('basics', 3, 'What Alba actually does with your money', '3 min', 'Where it goes, who holds it, and how to get it back in two days.'),
   ] },
   { id: 'etf', n: 2, name: 'ETFs', videos: [
-    V('etf', 0, 'What is an ETF?', '4 min', 'One purchase, hundreds of companies. The simplest way to own a piece of everything.', 'gH07sH1Hq1Q'),
-    V('etf', 1, 'What is inside a world ETF', '5 min', 'About 1’500 companies from 23 countries. Apple is in there, and so is Nestlé.'),
-    V('etf', 2, 'Fees, why 0.12% matters over ten years', '4 min', 'Small percentages, big difference. How a fee quietly compounds against you.'),
-    V('etf', 3, 'Choosing your first ETF', '6 min', 'Three questions that narrow hundreds of funds down to one or two.'),
+    V('etf', 0, 'What is an ETF?', 'Short', 'One purchase, hundreds of companies. The simplest way to own a piece of everything.', 'gH07sH1Hq1Q'),
+    V('etf', 1, '3 Things To Know Before Buying an ETF', 'Short', 'A quick checklist before you pick your first fund.', 'HzYmeyDd9to'),
+    V('etf', 2, 'Index funds vs ETFs - Explained', 'Short', 'Two ways to own a whole market, and what sets them apart.', '5m3u9snCpvk'),
+    V('etf', 3, 'Top 10 ETFs', 'Short', 'A look at some of the most popular ETFs and what they hold.', 'wodfi5Hsg1A'),
   ] },
   { id: 'themes', n: 3, name: 'Themes and shares', videos: [
     V('themes', 0, 'What a theme really holds', '4 min', 'Behind “Climate Transition” there are 38 real companies. Here is how they are picked.'),
@@ -310,6 +310,8 @@ export const CHAPTERS: Chapter[] = [
     V('mix', 2, 'Raising your monthly amount', '3 min', 'When to add more, and how to do it without feeling it.'),
   ] },
 ];
+// Poster for a video story: the supplied still for the first ETF short, YouTube's own thumbnail otherwise.
+export const poster = (v: Video) => (v.youtube === 'gH07sH1Hq1Q' ? img('lesson-still') : `https://i.ytimg.com/vi/${v.youtube}/hqdefault.jpg`);
 export const ALL_VIDEOS = CHAPTERS.flatMap(c => c.videos.map(v => ({ ...v, chapter: c })));
 
 /* ---------- ask alba ---------- */
