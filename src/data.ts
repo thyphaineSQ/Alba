@@ -15,7 +15,9 @@ export const LABELS: Record<Screen, string> = {
   circle: 'Circle', learn: 'Learn',
 };
 
-export const img = (name: string) => `${import.meta.env.BASE_URL}people/${name}.webp`;
+// A single-file preview build can inline the photos as data URIs on window.__ALBA_IMG__.
+const inlineImages = (globalThis as { __ALBA_IMG__?: Record<string, string> }).__ALBA_IMG__;
+export const img = (name: string) => inlineImages?.[name] ?? `${import.meta.env.BASE_URL}people/${name}.webp`;
 
 /* ---------- money ---------- */
 export const MINUS = '−';
@@ -270,42 +272,42 @@ export const THREADS: Thread[] = [
 ];
 
 /* ---------- learn ---------- */
-export type Video = { id: string; title: string; dur: string; youtube?: string };
+export type Video = { id: string; title: string; dur: string; hook: string; youtube?: string };
 export type Chapter = { id: string; n: number; name: string; videos: Video[] };
-const V = (chapter: string, i: number, title: string, dur: string, youtube?: string): Video => ({ id: `${chapter}-${i}`, title, dur, youtube });
+const V = (chapter: string, i: number, title: string, dur: string, hook: string, youtube?: string): Video => ({ id: `${chapter}-${i}`, title, dur, hook, youtube });
 export const CHAPTERS: Chapter[] = [
   { id: 'basics', n: 1, name: 'Getting started', videos: [
-    V('basics', 0, 'Why invest at all', '3 min'),
-    V('basics', 1, 'How much is enough to start', '4 min'),
-    V('basics', 2, 'Risk in plain words', '5 min'),
-    V('basics', 3, 'What Alba actually does with your money', '3 min'),
+    V('basics', 0, 'Why invest at all', '3 min', 'Cash loses a little every year. Investing is how your money keeps up, and then some.'),
+    V('basics', 1, 'How much is enough to start', '4 min', 'Less than you think. Most people here started with CHF 100.'),
+    V('basics', 2, 'Risk in plain words', '5 min', 'Risk is how much your money moves on the way, not whether it disappears.'),
+    V('basics', 3, 'What Alba actually does with your money', '3 min', 'Where it goes, who holds it, and how to get it back in two days.'),
   ] },
   { id: 'etf', n: 2, name: 'ETFs', videos: [
-    V('etf', 0, 'What is an ETF?', '4 min', 'gH07sH1Hq1Q'),
-    V('etf', 1, 'What is inside a world ETF', '5 min'),
-    V('etf', 2, 'Fees, why 0.12% matters over ten years', '4 min'),
-    V('etf', 3, 'Choosing your first ETF', '6 min'),
+    V('etf', 0, 'What is an ETF?', '4 min', 'One purchase, hundreds of companies. The simplest way to own a piece of everything.', 'gH07sH1Hq1Q'),
+    V('etf', 1, 'What is inside a world ETF', '5 min', 'About 1’500 companies from 23 countries. Apple is in there, and so is Nestlé.'),
+    V('etf', 2, 'Fees, why 0.12% matters over ten years', '4 min', 'Small percentages, big difference. How a fee quietly compounds against you.'),
+    V('etf', 3, 'Choosing your first ETF', '6 min', 'Three questions that narrow hundreds of funds down to one or two.'),
   ] },
   { id: 'themes', n: 3, name: 'Themes and shares', videos: [
-    V('themes', 0, 'What a theme really holds', '4 min'),
-    V('themes', 1, 'One company versus a basket', '5 min'),
-    V('themes', 2, 'How much to put in a theme', '3 min'),
+    V('themes', 0, 'What a theme really holds', '4 min', 'Behind “Climate Transition” there are 38 real companies. Here is how they are picked.'),
+    V('themes', 1, 'One company versus a basket', '5 min', 'Why a single share can double or halve, and a basket rarely does.'),
+    V('themes', 2, 'How much to put in a theme', '3 min', 'A simple rule: the world as your base, themes as the part you care about.'),
   ] },
   { id: 'pension', n: 4, name: 'Pension 3a and taxes', videos: [
-    V('pension', 0, 'What 3a is, in two minutes', '2 min'),
-    V('pension', 1, 'What you save in tax each year', '4 min'),
-    V('pension', 2, 'Invested 3a versus a 3a savings account', '5 min'),
-    V('pension', 3, 'When you can take it out', '3 min'),
+    V('pension', 0, 'What 3a is, in two minutes', '2 min', 'A Swiss savings pot for retirement that lowers your taxes every year.'),
+    V('pension', 1, 'What you save in tax each year', '4 min', 'Put in CHF 7’258 and many people save between CHF 1’000 and 2’000 in tax.'),
+    V('pension', 2, 'Invested 3a versus a 3a savings account', '5 min', 'Same tax break, very different results over 30 years.'),
+    V('pension', 3, 'When you can take it out', '3 min', 'Retirement, buying a home, moving abroad or starting a business.'),
   ] },
   { id: 'falls', n: 5, name: 'When markets fall', videos: [
-    V('falls', 0, 'Why prices go up and down', '4 min'),
-    V('falls', 1, 'What people here did in 2022', '5 min'),
-    V('falls', 2, 'Doing nothing is a decision', '3 min'),
+    V('falls', 0, 'Why prices go up and down', '4 min', 'News, fear and interest rates. None of them change what you own.'),
+    V('falls', 1, 'What people here did in 2022', '5 min', 'Most kept paying in. Here is what that looked like two years later.'),
+    V('falls', 2, 'Doing nothing is a decision', '3 min', 'Often the best one. Why waiting it out beats guessing the bottom.'),
   ] },
   { id: 'mix', n: 6, name: 'Building your own mix', videos: [
-    V('mix', 0, 'Base, themes and cash', '4 min'),
-    V('mix', 1, 'Rebalancing without fuss', '4 min'),
-    V('mix', 2, 'Raising your monthly amount', '3 min'),
+    V('mix', 0, 'Base, themes and cash', '4 min', 'Three parts, one plan. How much of each suits your pace.'),
+    V('mix', 1, 'Rebalancing without fuss', '4 min', 'Once a year, one tap, and your mix is back where you wanted it.'),
+    V('mix', 2, 'Raising your monthly amount', '3 min', 'When to add more, and how to do it without feeling it.'),
   ] },
 ];
 export const ALL_VIDEOS = CHAPTERS.flatMap(c => c.videos.map(v => ({ ...v, chapter: c })));
