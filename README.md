@@ -35,7 +35,7 @@ npm start                 # serves dist/ and /api/chat on http://localhost:8787
 - **Discover:** search, sliding filter chips, theme and ETF categories, and a detail sheet with *Add to my monthly mix*.
 - **Circle:** RSVP to events, follow people, heart posts, post a question anonymously, read threads.
 - **Learn:** only the chapter you're on, shown as stories (one per video). Stories open full screen: tap right or left to move, hold to pause, swipe down to close; text stories advance on their own, and the ETFs chapter plays four real YouTube Shorts (needs a network connection). Finishing a chapter moves you on to the next. *See the full course* opens every chapter.
-- **Ask Alba:** a floating assistant on every tab. It suggests questions for the page you're on and streams live answers from Claude using that page's live figures. The conversation resets when you change tab.
+- **Ask Alba:** a floating assistant on every tab that suggests questions for the page you're on. In the demo it answers every question with an invitation to support the project (`SUPPORT_ONLY` in `src/chat.tsx`); set that to `false` to stream live answers from Claude using the page's figures. The conversation resets when you change tab.
 
 State is kept in `localStorage`. *Restart* under the phone resets everything. On screens narrower than 500px the app goes full screen, without the phone frame.
 

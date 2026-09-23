@@ -11,6 +11,20 @@ export const useChat = () => useContext(Ctx);
 
 const FIRST_NAME = 'Camille';
 
+// Demo mode: every question gets the same invitation instead of a live Claude answer.
+// Set to false to switch back to live answers from /api/chat (needs ANTHROPIC_API_KEY on the server).
+const SUPPORT_ONLY = true;
+const SUPPORT_REPLY = 'Great question! To ask more questions, support this amazing project.';
+
+// Types a scripted reply out a few characters at a time, so it reads like a live answer.
+async function typeOut(text: string, onDelta: (t: string) => void, signal: AbortSignal) {
+  await new Promise(r => setTimeout(r, 700));
+  for (let i = 0; i < text.length && !signal.aborted; i += 3) {
+    onDelta(text.slice(i, i + 3));
+    await new Promise(r => setTimeout(r, 18));
+  }
+}
+
 /* ---------- what the assistant knows about the page ---------- */
 function pageContext(tab: Tab, s: State, d: Derived): string {
   const h = d.holdings, g = d.gains;
@@ -121,19 +135,22 @@ export function ChatProvider({ children }: { children: ReactNode }) {
 
     const controller = new AbortController();
     abort.current = controller;
-    const { outcome, detail } = await streamAnswer(
-      { firstName: FIRST_NAME, page: tab, context: pageContext(tab, s, d), messages: next },
-      delta => {
-        setLoading(false);
-        setMessages(m => {
-          const copy = m.slice();
-          const last = copy[copy.length - 1];
-          copy[copy.length - 1] = { ...last, text: (last.text + delta).replace(/\u2014/g, ',') };
-          return copy;
-        });
-      },
-      controller.signal,
-    );
+    const onDelta = (delta: string) => {
+      setLoading(false);
+      setMessages(m => {
+        const copy = m.slice();
+        const last = copy[copy.length - 1];
+        copy[copy.length - 1] = { ...last, text: (last.text + delta).replace(/\u2014/g, ',') };
+        return copy;
+      });
+    };
+    const { outcome, detail } = SUPPORT_ONLY
+      ? (await typeOut(SUPPORT_REPLY, onDelta, controller.signal), { outcome: 'ok' as const, detail: undefined })
+      : await streamAnswer(
+        { firstName: FIRST_NAME, page: tab, context: pageContext(tab, s, d), messages: next },
+        onDelta,
+        controller.signal,
+      );
     if (controller.signal.aborted) return;
     setLoading(false);
     setMessages(m => {
