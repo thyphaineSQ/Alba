@@ -190,6 +190,14 @@ function StoryViewer({ chapter, start, onClose }: { chapter: Chapter; start: num
         )}
       </div>
 
+      {/* Fallback for hosts whose policy blocks the YouTube player inside the page. */}
+      {isVideo && (
+        <a
+          href={`https://www.youtube.com/shorts/${v.youtube}`} target="_blank" rel="noopener noreferrer"
+          style={{ alignSelf: 'center', marginTop: 12, fontSize: 12.5, color: 'rgba(255,255,255,.7)', textDecoration: 'none', borderBottom: '1px solid rgba(255,255,255,.3)', paddingBottom: 1 }}
+        >Video not loading? Open it on YouTube ↗</a>
+      )}
+
       {/* actions */}
       <div style={{ display: 'flex', gap: 10, padding: '14px 14px 28px' }}>
         <button
