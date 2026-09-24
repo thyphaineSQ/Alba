@@ -37,7 +37,7 @@ npm start                 # serves dist/ and /api/chat on http://localhost:8787
 - **Learn:** only the chapter you're on, shown as stories (one per video). Stories open full screen: tap right or left to move, hold to pause, swipe down to close; text stories advance on their own, and the ETFs chapter plays four real YouTube Shorts (needs a network connection). Finishing a chapter moves you on to the next. *See the full course* opens every chapter.
 - **Ask Alba:** a floating assistant on every tab that suggests questions for the page you're on. In the demo it answers every question with an invitation to support the project (`SUPPORT_ONLY` in `src/chat.tsx`); set that to `false` to stream live answers from Claude using the page's figures. The conversation resets when you change tab.
 
-State is kept in `localStorage`. *Restart* under the phone resets everything. On screens narrower than 500px the app goes full screen, without the phone frame.
+State is kept in `localStorage`. A first visit, a return after more than 2 minutes away, or 2 minutes without any tap, key or scroll sends the visitor back to the splash with everything reset (`IDLE_MS` in `src/store.tsx`; an open YouTube player counts as activity). *Restart* under the phone resets everything. On screens narrower than 500px the app goes full screen, without the phone frame.
 
 ## Deploy on Vercel
 

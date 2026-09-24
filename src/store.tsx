@@ -60,10 +60,21 @@ const INITIAL: State = {
 };
 
 const KEY = 'alba-state-v1';
+const ACTIVE_KEY = 'alba-last-active';
+// First visit, or back after this long without activity: start again from the splash.
+export const IDLE_MS = 2 * 60 * 1000;
+
+function lastActive() {
+  try { return Number(localStorage.getItem(ACTIVE_KEY)) || 0; } catch { return 0; }
+}
+function markActive() {
+  try { localStorage.setItem(ACTIVE_KEY, String(Date.now())); } catch { /* ignore */ }
+}
+
 function load(): State {
   try {
     const raw = localStorage.getItem(KEY);
-    if (raw) return { ...INITIAL, ...JSON.parse(raw) };
+    if (raw && Date.now() - lastActive() < IDLE_MS) return { ...INITIAL, ...JSON.parse(raw) };
   } catch { /* storage unavailable */ }
   return INITIAL;
 }
@@ -161,6 +172,40 @@ export function AppProvider({ children }: { children: ReactNode }) {
     setDir(-1);
     setState({ ...INITIAL });
   }, []);
+
+  // Inactivity: after IDLE_MS with no tap, key or scroll, send the visitor back to the splash.
+  // A YouTube player inside a story swallows input events, so an open player counts as activity.
+  useEffect(() => {
+    let timer = 0, lastWrite = 0;
+    const schedule = () => {
+      window.clearTimeout(timer);
+      timer = window.setTimeout(() => {
+        if (document.querySelector('iframe')) { markActive(); schedule(); return; }
+        reset();
+        schedule();
+      }, IDLE_MS);
+    };
+    const onActivity = () => {
+      const now = Date.now();
+      if (now - lastWrite > 5000) { lastWrite = now; markActive(); }
+      schedule();
+    };
+    const onVisible = () => {
+      if (document.visibilityState !== 'visible') return;
+      if (Date.now() - lastActive() >= IDLE_MS) reset();
+      onActivity();
+    };
+    const events = ['pointerdown', 'keydown', 'wheel', 'touchstart', 'scroll'] as const;
+    events.forEach(e => window.addEventListener(e, onActivity, { capture: true, passive: true }));
+    document.addEventListener('visibilitychange', onVisible);
+    markActive();
+    schedule();
+    return () => {
+      window.clearTimeout(timer);
+      events.forEach(e => window.removeEventListener(e, onActivity, { capture: true }));
+      document.removeEventListener('visibilitychange', onVisible);
+    };
+  }, [reset]);
 
   const notify = useCallback((msg: string) => {
     setToast(msg);
