@@ -31,13 +31,19 @@ export function Mark({ size = 20, color = '#FA5B35' }: { size?: number; color?: 
   );
 }
 
-export function Logo() {
-  return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: 7 }} aria-label="Alba by Swissquote">
+export function Logo({ onClick, label }: { onClick?: () => void; label?: string } = {}) {
+  const content = (
+    <>
       <Mark />
       <span className="m" style={{ fontSize: 21, lineHeight: 1, letterSpacing: '-.01em' }}>Alba</span>
       <span style={{ fontSize: 12, lineHeight: 1, color: 'var(--faint)', marginLeft: 2, alignSelf: 'flex-end', paddingBottom: 2 }}>by Swissquote</span>
-    </div>
+    </>
+  );
+  const style = { display: 'flex', alignItems: 'center', gap: 7 } as const;
+  return onClick ? (
+    <motion.button onClick={onClick} whileTap={{ scale: 0.96 }} aria-label={label ?? 'Alba by Swissquote'} style={{ ...style, alignSelf: 'flex-start' }}>{content}</motion.button>
+  ) : (
+    <div style={style} aria-label="Alba by Swissquote">{content}</div>
   );
 }
 

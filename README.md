@@ -30,7 +30,7 @@ npm start                 # serves dist/ and /api/chat on http://localhost:8787
 - Every figure in the app after the time jump scales from the onboarding amount: balance, holdings, gains and projection.
 
 **App tabs:**
-- **Home:** balance, projection chart (it redraws when you change or pause the monthly amount under *Manage*), event RSVP.
+- **Home:** tapping the Alba logo restarts the onboarding; balance, projection chart (it redraws when you change or pause the monthly amount under *Manage*), event RSVP.
 - **Wealth:** holdings by type, allocation bar, and investing your cash into the World fund.
 - **Discover:** search, sliding filter chips, theme and ETF categories, and a detail sheet with *Add to my monthly mix*.
 - **Circle:** RSVP to events, follow people, heart posts, post a question anonymously, read threads.

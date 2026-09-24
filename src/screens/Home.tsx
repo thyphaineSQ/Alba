@@ -140,14 +140,14 @@ function ManageSheet({ open, onClose }: { open: boolean; onClose: () => void }) 
 
 /* ---------- home ---------- */
 export function Home() {
-  const { s, d, go } = useApp();
+  const { s, d, go, reset } = useApp();
   const [event, setEvent] = useState<string | null>(null);
   const [manage, setManage] = useState(false);
   const firstName = 'Camille';
   return (
     <>
       <AppBody>
-        <Rise><Logo /></Rise>
+        <Rise><Logo onClick={reset} label="Alba by Swissquote, start the onboarding again" /></Rise>
         <Rise><h1 className="title">Two years in, {firstName}.</h1></Rise>
         <Rise style={{ display: 'flex', flexDirection: 'column', gap: 9, paddingBottom: 20, borderBottom: '1px solid var(--rule)' }}>
           <div className="label">You have</div>
